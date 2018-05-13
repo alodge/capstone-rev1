@@ -21,14 +21,6 @@ var transporter = nodemailer.createTransport({
     refreshToken: "1/wF5AVG9MAO6mw5CAxUOo3I676vx2Xsg6UMqWaBszVRo"
   }
 });
-/**
-transporter.sendMail(mailOptions, function(err, res) {
-  if (err) {
-    console.log("Error");
-  } else {
-    console.log("Email Sent");
-  }
-});**/
 
 var app = express();
 var port = process.env.PORT || 3000;

@@ -54,6 +54,8 @@ app.post("/", function(req, res) {
       console.log("Email Sent");
     }
   });
+
+  res.render("start", {});
 });
 
 app.get("/", function(req, res) {

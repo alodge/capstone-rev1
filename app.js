@@ -66,6 +66,10 @@ app.get("/about", function(req, res) {
   res.render("about", {});
 });
 
+app.get("/transfer", function(req, res) {
+  res.render("transfer", {});
+});
+
 app.listen(port, function() {
   console.log("BurgerCoin app listening on port " + port + "!");
 });

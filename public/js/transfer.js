@@ -1,54 +1,10 @@
-import React, { Component } from "react";
-import logo from "./logo.svg";
-import "./App.css";
-import web3 from "./web3";
+
 import bctest from "./bctest";
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      amount: "",
-      message: "",
-      address: "",
-      balance: "",
-      targetAdd: "",
-      emailAddy: "",
-      transferee: "",
-      transferAmount: "",
-      myBalance: ""
-    };
-    this.updateState = this.updateState.bind(this);
-    this.updateTransferee = this.updateTransferee.bind(this);
-    this.updateAmount = this.updateAmount.bind(this);
-  };
 
-  async componentDidMount() {
-    const address = await bctest.options.address;
-    const balance = await bctest.methods
-      .balanceOf(bctest.options.address)
-      .call();
-    this.setState({ address, balance });
-    
-    const currAddress = await web3.eth.getAccounts();
-    const myAddress = currAddress[0];
-    const myBalance = await bctest.methods
-      .balanceOf(bctest.options.myAddress)
-      .call();
-    this.setState({ myBalance })
-  };
 
-  updateState(e) {
-    this.setState({emailAddy: e.target.value});
-  };
   
-  updateTransferee(r) {
-    this.setState({ transferee: r.target.value });
-  };
-  
-  updateAmount(q) {
-    this.setState({ transferAmount: q.target.value });
-  };
+
 
   onSubmit = async event => {
     event.preventDefault();

@@ -47,7 +47,7 @@ app.post("/", function(req, res) {
     text:
       "Follow the link to claim your tokens! https://burgercoin-project-2018.herokuapp.com/"
   };
-  
+  /*
   var emailDomain = userEmail.replace(/.*@/, "");
   //  CHECK1 - Email address has an oregonstate.edu domain
   if (emailDomain == "oregonstate.edu") {
@@ -93,7 +93,7 @@ xhttp.send();
   {
       console.log("I'm sorry, we are only giving coins to oregonstate.edu addresses right now
   }
-  
+  */
   transporter.sendMail(mailOptions, function(err, res) {
     if (err) {
       console.log("Error");

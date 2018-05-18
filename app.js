@@ -89,44 +89,10 @@ xhttp.open("GET", "filename", true);
 xhttp.send();
     
     // END HTTP
-    
-    
-    var checkcurrent = new XMLHttpRequest();
-    checkcurrent.open('GET', 'https://my-project-1514223225812.appspot.com/account', true);
-    // If specified, responseType must be empty string or "text"
-    checkcurrent.responseType = 'text';
-    checkcurrent.onload = async function () {
-      if (checkcurrent.readyState === checkcurrent.DONE) {
-        if (checkcurrent.status === 200) {
-          var current_list = JSON.parse(checkcurrent.response);
-          var already_exists = 0;
-          for (var address_x in current_list)
-          {
-            var current_object = current_list[address_x];
-            if (current_object['address'] == emailAddress)
-            {
-              already_exists = 1;
-            }
-          }
-          if (already_exists == 0)
-          {
-            // new account
-            const myAddress = await web3.eth.getAccounts();
-            await bctest.methods.getCoins().send({ gas: "700000", from: myAddress[0] });
-            // add to database
-            fetch('https://my-project-1514223225812.appspot.com/account', {
-              method: 'post',
-              body: JSON.stringify({address: emailAddress})
-            }).then(res => console.log(res));
-          }
-          if (already_exists == 1)
-          {
-            console.log("I'm sorry, that address has already received BurgerCoin");
-          }
-        else if (emailDomain != 'oregonstate.edu')
-        {
-            console.log("I'm sorry, we are only giving coins to oregonstate.edu addresses right now
-        }
+  else if (emailDomain != 'oregonstate.edu')
+  {
+      console.log("I'm sorry, we are only giving coins to oregonstate.edu addresses right now
+  }
   
   transporter.sendMail(mailOptions, function(err, res) {
     if (err) {

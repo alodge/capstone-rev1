@@ -118,19 +118,19 @@ app.get("/transfer", function(req, res) {
 });
 
 app.get("/user", function(req, res) {
-  res.render("transfer", {});
+  res.render("user", {});
 });
 
 app.get("/restaurant", function(req, res) {
-  res.render("transfer", {});
+  res.render("restaurant", {});
 });
 
 app.get("/u_signup", function(req, res) {
-  res.render("transfer", {});
+  res.render("u_signup", {});
 });
 
 app.get("/r_signup", function(req, res) {
-  res.render("transfer", {});
+  res.render("r_signup", {});
 });
 
 

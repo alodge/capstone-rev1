@@ -117,6 +117,14 @@ app.get("/transfer", function(req, res) {
   res.render("transfer", {});
 });
 
+app.get("/user", function(req, res) {
+  res.render("transfer", {});
+});
+
+app.get("/restaurant", function(req, res) {
+  res.render("transfer", {});
+});
+
 app.listen(port, function() {
   console.log("BurgerCoin app listening on port " + port + "!");
 });

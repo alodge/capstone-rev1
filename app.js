@@ -121,53 +121,24 @@ app.post("/u_signup", function(req, res) {
   
   console.log("a");
   
-  /*
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      // Typical action to be performed when the document is ready:
-      var current_list = JSON.parse(xhttp.responseText);
-      console.log(current_list);
-      var already_exists = 0;
+  var req = new XMLHttpRequest();
+  var payload = {sampleDate:null};
+  // payload.sampleDate = document.getElementById("sampleDate").value;
+  req.open("GET", "https://my-project-1514223225812.appspot.com/account", true);
 
-      for (var address_x in current_list)
-      {
-        var current_object = current_list[address_x];
-        if (current_object['address'] == emailAddress)
-        {
-          already_exists = 1;
-        }
-      }
-
-      console.log("b");
-      
-      if (already_exists == 0)
-      {
-        // new account
-        // var myAddress = await web3.eth.getAccounts();
-        // bctest.methods.getCoins().send({ gas: "700000", from: myAddress[0] });
-        // add to database
-        //fetch('https://my-project-1514223225812.appspot.com/account', {
-        //  method: 'post',
-        //  body: JSON.stringify({address: userEmail})
-        //});
-        //console.log(res);
-      }
-
-      if (already_exists == 1)
-      {
-        console.log("I'm sorry, that address has already received BurgerCoin");
-      }
-    }
-  };
-
-    console.log("c");
+  req.addEventListener('load',function(){
+    if(req.status >= 200 && req.status < 400)
+    {
+      var response = JSON.parse(req.responseText);
+      console.log(response);
+    } 
+    else 
+    {
+      console.log("Error in network request: " + req.statusText);
+    }});		
+  req.send(JSON.stringify(payload));
+  // event.preventDefault();
   
-  xhttp.open("GET", "https://my-project-1514223225812.appspot.com/account", true);
-  xhttp.send();
-                  
-    console.log("d");
-  */
   transporter.sendMail(mailOptions, function(err, res) {
     if (err) {
       console.log("Error");

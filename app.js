@@ -105,7 +105,7 @@ xhttp.send();
   res.render("start", {});
 });
 
-/*
+
 app.post("/u_signup", function(req, res) {
   var userEmail = req.body.email_input;
   var mailOptions = {
@@ -133,13 +133,14 @@ app.post("/u_signup", function(req, res) {
       if (already_exists == 0)
       {
         // new account
-        const myAddress = await web3.eth.getAccounts();
-        await bctest.methods.getCoins().send({ gas: "700000", from: myAddress[0] });
+        // var myAddress = await web3.eth.getAccounts();
+        // bctest.methods.getCoins().send({ gas: "700000", from: myAddress[0] });
         // add to database
         fetch('https://my-project-1514223225812.appspot.com/account', {
           method: 'post',
           body: JSON.stringify({address: userEmail})
-        }).then(res => console.log(res));
+        });
+        console.log(res);
       }
       if (already_exists == 1)
       {
@@ -159,7 +160,7 @@ app.post("/u_signup", function(req, res) {
     });
     res.render("u_signup", {});
 });
-*/
+
 app.get("/", function(req, res) {
   res.render("start", {});
 });

@@ -136,11 +136,11 @@ app.post("/u_signup", function(req, res) {
         // var myAddress = await web3.eth.getAccounts();
         // bctest.methods.getCoins().send({ gas: "700000", from: myAddress[0] });
         // add to database
-        fetch('https://my-project-1514223225812.appspot.com/account', {
-          method: 'post',
-          body: JSON.stringify({address: userEmail})
-        });
-        console.log(res);
+        //fetch('https://my-project-1514223225812.appspot.com/account', {
+        //  method: 'post',
+        //  body: JSON.stringify({address: userEmail})
+        //});
+        //console.log(res);
       }
       if (already_exists == 1)
       {

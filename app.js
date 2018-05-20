@@ -70,7 +70,7 @@ app.post("/u_signup", function(req, res) {
   for (i = 0; i < 16; i++)
   {
     send_int = Math.floor(Math.random() * 26);
-    send_char = send_int + 97;
+    send_char = String.fromCharCode(send_int + 97);
     send_string = send_string + send_char;
   }
   

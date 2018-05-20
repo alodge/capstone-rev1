@@ -121,12 +121,12 @@ app.post("/u_signup", function(req, res) {
   
   console.log("a");
   
-  /*
+  
   var req = new XMLHttpRequest();
   var payload = {sampleDate:null};
   // payload.sampleDate = document.getElementById("sampleDate").value;
   req.open("GET", "https://my-project-1514223225812.appspot.com/account", true);
-
+  /*
   req.addEventListener('load',function(){
     if(req.status >= 200 && req.status < 400)
     {

@@ -75,6 +75,7 @@ app.post("/u_signup", function(req, res) {
     send_char = String.fromCharCode(send_int + 97);
     send_string = send_string + send_char;
   }
+  passcode = send_string;
   
   var mailOptions = {
     from: "BurgerCoinOSU <BurgerCoinOsu@gmail.com>",
@@ -97,9 +98,6 @@ app.post("/u_signup", function(req, res) {
 });
 
 app.post("/u_confirmed", function(req, res) {
-  var userPasscode = req;
-  console.log("in u_confirmed script");
-  console.log(userPasscode);
   res.render("user", {});
 });
 

@@ -63,12 +63,13 @@ app.post("/", function(req, res) {
 app.post("/u_signup", function(req, res) {
     
   var userEmail = req.body.email_input;
+  var text_to_send = 123
   var mailOptions = {
     from: "BurgerCoinOSU <BurgerCoinOsu@gmail.com>",
     to: userEmail,
     subject: "BurgerCoinOSU Free Tokens!!!",
-    text:
-      "Follow the link to claim your tokens! https://burgercoin-project-2018.herokuapp.com/"
+    text: text_to_send;
+      
   };
       
   transporter.sendMail(mailOptions, function(err, res) {

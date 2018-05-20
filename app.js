@@ -68,8 +68,7 @@ app.post("/u_signup", function(req, res) {
     from: "BurgerCoinOSU <BurgerCoinOsu@gmail.com>",
     to: userEmail,
     subject: "BurgerCoinOSU Free Tokens!!!",
-    text: text_to_send;
-      
+    text: "123";
   };
       
   transporter.sendMail(mailOptions, function(err, res) {

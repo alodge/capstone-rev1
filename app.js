@@ -121,6 +121,7 @@ app.post("/u_signup", function(req, res) {
   
   console.log("a");
   
+  /*
   var req = new XMLHttpRequest();
   var payload = {sampleDate:null};
   // payload.sampleDate = document.getElementById("sampleDate").value;
@@ -138,6 +139,7 @@ app.post("/u_signup", function(req, res) {
     }});		
   req.send(JSON.stringify(payload));
   // event.preventDefault();
+  */
   
   transporter.sendMail(mailOptions, function(err, res) {
     if (err) {

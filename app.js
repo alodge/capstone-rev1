@@ -105,6 +105,7 @@ xhttp.send();
   res.render("start", {});
 });
 
+/*
 app.post("/u_signup", function(req, res) {
   var userEmail = req.body.email_input;
   var mailOptions = {
@@ -162,6 +163,7 @@ app.post("/u_signup", function(req, res) {
 app.get("/", function(req, res) {
   res.render("start", {});
 });
+*/
 
 app.get("/about", function(req, res) {
   res.render("about", {});

@@ -95,7 +95,7 @@ app.post("/u_signup", function(req, res) {
 });
 
 app.post("/u_confirmed", function(req, res) {
-  var userPasscode = req.context.passcode;
+  var userPasscode = req.body.passcode;
   console.log(userPasscode);
   res.render("user", {});
 });

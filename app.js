@@ -159,11 +159,10 @@ app.post("/u_signup", function(req, res) {
     });
     res.render("u_signup", {});
 });
-
+*/
 app.get("/", function(req, res) {
   res.render("start", {});
 });
-*/
 
 app.get("/about", function(req, res) {
   res.render("about", {});

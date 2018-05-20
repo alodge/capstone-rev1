@@ -121,29 +121,29 @@ app.post("/u_signup", function(req, res) {
     var current_list = JSON.parse(xhttp.responseText);
     console.log(current_list);
     var already_exists = 0;
-          for (var address_x in current_list)
-          {
-            var current_object = current_list[address_x];
-            if (current_object['address'] == emailAddress)
-            {
-              already_exists = 1;
-            }
-          }
-          if (already_exists == 0)
-          {
-            // new account
-            // const myAddress = await web3.eth.getAccounts();
-            // await bctest.methods.getCoins().send({ gas: "700000", from: myAddress[0] });
-            // add to database
-            fetch('https://my-project-1514223225812.appspot.com/account', {
-              method: 'post',
-              body: JSON.stringify({address: userEmail})
-            }).then(res => console.log(res));
-          }
-          if (already_exists == 1)
-          {
-            console.log("I'm sorry, that address has already received BurgerCoin");
-          }
+      for (var address_x in current_list)
+      {
+        var current_object = current_list[address_x];
+        if (current_object['address'] == emailAddress)
+        {
+          already_exists = 1;
+        }
+      }
+      if (already_exists == 0)
+      {
+        // new account
+        const myAddress = await web3.eth.getAccounts();
+        await bctest.methods.getCoins().send({ gas: "700000", from: myAddress[0] });
+        // add to database
+        fetch('https://my-project-1514223225812.appspot.com/account', {
+          method: 'post',
+          body: JSON.stringify({address: userEmail})
+        }).then(res => console.log(res));
+      }
+      if (already_exists == 1)
+      {
+        console.log("I'm sorry, that address has already received BurgerCoin");
+      }
     
     };
     xhttp.open("GET", "filename", true);

@@ -88,8 +88,9 @@ app.post("/u_signup", function(req, res) {
       console.log("Email Sent");
     }
   });
-      
-  res.render("u_confirmed", {});
+  var context = {};
+  context.passcode = send_string;
+  res.render("u_confirmed", context);
     
 });
 

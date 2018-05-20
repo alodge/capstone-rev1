@@ -24,7 +24,6 @@ var transporter = nodemailer.createTransport({
 
 var app = express();
 var port = process.env.PORT || 3000;
-//var req_1 = new XMLHttpRequest();
 
 app.use(express.static("public"));
 
@@ -62,9 +61,7 @@ app.post("/", function(req, res) {
 
 
 app.post("/u_signup", function(req, res) {
-  
-    console.log("0");
-  
+    
   var userEmail = req.body.email_input;
   var mailOptions = {
     from: "BurgerCoinOSU <BurgerCoinOsu@gmail.com>",
@@ -73,30 +70,7 @@ app.post("/u_signup", function(req, res) {
     text:
       "Follow the link to claim your tokens! https://burgercoin-project-2018.herokuapp.com/"
   };
-  
-  console.log("a");
-  
-  
-  // var req_1 = new XMLHttpRequest();
-  // var payload = {sampleDate:null};
-  // payload.sampleDate = document.getElementById("sampleDate").value;
-  /*
-  req.open("GET", "https://my-project-1514223225812.appspot.com/account", true);
-  
-  req.addEventListener('load',function(){
-    if(req.status >= 200 && req.status < 400)
-    {
-      var response = JSON.parse(req.responseText);
-      console.log(response);
-    } 
-    else 
-    {
-      console.log("Error in network request: " + req.statusText);
-    }});		
-  req.send(JSON.stringify(payload));
-  // event.preventDefault();
-  */
-  
+      
   transporter.sendMail(mailOptions, function(err, res) {
     if (err) {
       console.log("Error");
@@ -104,9 +78,7 @@ app.post("/u_signup", function(req, res) {
       console.log("Email Sent");
     }
   });
-    
-    console.log("e");
-  
+      
   res.render("u_signup", {});
     
 });

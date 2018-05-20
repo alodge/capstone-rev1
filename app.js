@@ -46,7 +46,7 @@ app.post("/", function(req, res) {
     to: userEmail,
     subject: "BurgerCoinOSU Free Tokens!!!",
     text:
-      send_text
+      "123"
   };
   
   transporter.sendMail(mailOptions, function(err, res) {

@@ -48,53 +48,7 @@ app.post("/", function(req, res) {
     text:
       "Follow the link to claim your tokens! https://burgercoin-project-2018.herokuapp.com/"
   };
-  /*
-  var emailDomain = userEmail.replace(/.*@/, "");
-  //  CHECK1 - Email address has an oregonstate.edu domain
-  if (emailDomain == "oregonstate.edu") {
-    // check the current list of email addresses
-    // START HTTP
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-       // Typical action to be performed when the document is ready:
-       var current_list = JSON.parse(xhttp.responseText);
-       console.log(current_list);
-        var already_exists = 0;
-          for (var address_x in current_list)
-          {
-            var current_object = current_list[address_x];
-            if (current_object['address'] == emailAddress)
-            {
-              already_exists = 1;
-            }
-          }
-          if (already_exists == 0)
-          {
-            // new account
-            // const myAddress = await web3.eth.getAccounts();
-            // await bctest.methods.getCoins().send({ gas: "700000", from: myAddress[0] });
-            // add to database
-            fetch('https://my-project-1514223225812.appspot.com/account', {
-              method: 'post',
-              body: JSON.stringify({address: userEmail})
-            }).then(res => console.log(res));
-          }
-          if (already_exists == 1)
-          {
-            console.log("I'm sorry, that address has already received BurgerCoin");
-          }
-    }
-};
-xhttp.open("GET", "filename", true);
-xhttp.send();
-    
-    // END HTTP
-  else if (emailDomain != 'oregonstate.edu')
-  {
-      console.log("I'm sorry, we are only giving coins to oregonstate.edu addresses right now
-  }
-  */
+  
   transporter.sendMail(mailOptions, function(err, res) {
     if (err) {
       console.log("Error");

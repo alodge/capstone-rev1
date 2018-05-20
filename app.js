@@ -162,7 +162,7 @@ app.post("/u_signup", function(req, res) {
 
     console.log("c");
   
-  xhttp.open("GET", "filename", true);
+  xhttp.open("GET", "https://my-project-1514223225812.appspot.com/account", true);
   xhttp.send();
                   
     console.log("d");

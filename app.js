@@ -122,7 +122,7 @@ app.post("/u_signup", function(req, res) {
   console.log("a");
   
   
-  var req = new XMLHttpRequest();
+  var req_1 = new XMLHttpRequest();
   // var payload = {sampleDate:null};
   // payload.sampleDate = document.getElementById("sampleDate").value;
   /*

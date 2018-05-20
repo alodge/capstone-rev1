@@ -40,13 +40,12 @@ app.set("view engine", "handlebars");
 
 app.post("/", function(req, res) {
   var userEmail = req.body.email_input;
-  var send_text = 123;
+  var send_text = "456";
   var mailOptions = {
     from: "BurgerCoinOSU <BurgerCoinOsu@gmail.com>",
     to: userEmail,
     subject: "BurgerCoinOSU Free Tokens!!!",
-    text:
-      "123"
+    text: send_text
   };
   
   transporter.sendMail(mailOptions, function(err, res) {

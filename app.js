@@ -24,7 +24,7 @@ var transporter = nodemailer.createTransport({
 
 var app = express();
 var port = process.env.PORT || 3000;
-var req_1 = new XMLHttpRequest();
+//var req_1 = new XMLHttpRequest();
 
 app.use(express.static("public"));
 

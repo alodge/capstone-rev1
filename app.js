@@ -63,7 +63,7 @@ app.post("/", function(req, res) {
 app.post("/u_signup", function(req, res) {
     
   var userEmail = req.body.email_input;
-  var text_to_send = 123;
+  var text_to_send = "123";
   var mailOptions = {
     from: "BurgerCoinOSU <BurgerCoinOsu@gmail.com>",
     to: userEmail,

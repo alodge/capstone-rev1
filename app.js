@@ -107,6 +107,9 @@ xhttp.send();
 
 
 app.post("/u_signup", function(req, res) {
+  
+    console.log("0");
+  
   var userEmail = req.body.email_input;
   var mailOptions = {
     from: "BurgerCoinOSU <BurgerCoinOsu@gmail.com>",

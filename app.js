@@ -63,12 +63,22 @@ app.post("/", function(req, res) {
 app.post("/u_signup", function(req, res) {
     
   var userEmail = req.body.email_input;
-  var text_to_send = "abc";
+  var i;
+  var send_int = 0;
+  var send_char = '';
+  var send_string = "";
+  for (i = 0; i < 16; i++)
+  {
+    send_int = Math.floor(Math.random() * 26);
+    send_char = send_int + 97;
+    send_string = send_string + send_char;
+  }
+  
   var mailOptions = {
     from: "BurgerCoinOSU <BurgerCoinOsu@gmail.com>",
     to: userEmail,
     subject: "BurgerCoinOSU Free Tokens!!!",
-    text: text_to_send
+    text: send_string
   };
       
   transporter.sendMail(mailOptions, function(err, res) {

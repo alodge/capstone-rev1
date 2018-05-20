@@ -121,6 +121,7 @@ app.post("/u_signup", function(req, res) {
   
   console.log("a");
   
+  /*
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -166,7 +167,7 @@ app.post("/u_signup", function(req, res) {
   xhttp.send();
                   
     console.log("d");
-  
+  */
   transporter.sendMail(mailOptions, function(err, res) {
     if (err) {
       console.log("Error");

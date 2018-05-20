@@ -10,6 +10,8 @@ var nodemailer = require("nodemailer");
 
 var freeTokensPage = "https://burgercoin-project-2018.herokuapp.com/";
 
+var passcode = "";
+
 var transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
@@ -89,7 +91,7 @@ app.post("/u_signup", function(req, res) {
     }
   });
   var context = {};
-  context.passcode = send_string;
+  context.p = send_string;
   res.render("u_confirmed", context);
     
 });

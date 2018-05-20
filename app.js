@@ -89,8 +89,13 @@ app.post("/u_signup", function(req, res) {
     }
   });
       
-  res.render("u_signup", {});
+  res.render("u_confirmed", {});
     
+});
+
+app.post("/u_confirmed", function(req, res) {
+  var userEmail = req.body.email_input;
+  res.render("user", {});
 });
 
 app.get("/", function(req, res) {

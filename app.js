@@ -118,10 +118,11 @@ app.post("/u_signup", function(req, res) {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-    // Typical action to be performed when the document is ready:
-    var current_list = JSON.parse(xhttp.responseText);
-    console.log(current_list);
-    var already_exists = 0;
+      // Typical action to be performed when the document is ready:
+      var current_list = JSON.parse(xhttp.responseText);
+      console.log(current_list);
+      var already_exists = 0;
+
       for (var address_x in current_list)
       {
         var current_object = current_list[address_x];
@@ -130,6 +131,7 @@ app.post("/u_signup", function(req, res) {
           already_exists = 1;
         }
       }
+
       if (already_exists == 0)
       {
         // new account
@@ -142,23 +144,27 @@ app.post("/u_signup", function(req, res) {
         //});
         //console.log(res);
       }
+
       if (already_exists == 1)
       {
         console.log("I'm sorry, that address has already received BurgerCoin");
       }
+    }
+  };
     
-    };
-    xhttp.open("GET", "filename", true);
-    xhttp.send();
+  xhttp.open("GET", "filename", true);
+  xhttp.send();
                   
-    transporter.sendMail(mailOptions, function(err, res) {
-      if (err) {
-        console.log("Error");
-      } else {
-        console.log("Email Sent");
-      }
-    });
-    res.render("u_signup", {});
+  transporter.sendMail(mailOptions, function(err, res) {
+    if (err) {
+      console.log("Error");
+    } else {
+      console.log("Email Sent");
+    }
+  });
+    
+  res.render("u_signup", {});
+    
 });
 
 app.get("/", function(req, res) {

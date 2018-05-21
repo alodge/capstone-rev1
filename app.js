@@ -141,8 +141,8 @@ app.post("/u_verified", function(req, res) {
   var context = {};
   context.p = userPasscode;
   context.e = userEmail;
-  var response = JSON.parse(request.responseText)
-  context.r = response;
+  // var response = JSON.parse(request.responseText)
+  context.r = "nice try";
   res.render("u_verified", context);
 });
 

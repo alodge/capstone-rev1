@@ -96,17 +96,19 @@ app.post("/u_signup", function(req, res) {
   
   // Third, send an entry to the user database with that information
   var context = {};
-  context.passcode = send_string;
   context.p = send_string;
-  context.address = userEmail;
   context.e = userEmail;
+  
+  var payload = {};
+  payload.passcode = send_string;
+  payload.address = userEmail;
   
   // Send the post request to the server
   request({
     url: "https://my-project-1514223225812.appspot.com/account",
     method: "POST",
     json: true,   // <--Very important!!!
-    body: context
+    body: payload;
   }, function (error, response, body){
       console.log(response);
   });

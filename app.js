@@ -140,14 +140,18 @@ app.post("/u_verified", function(req, res) {
       var passed = response.body;
       if (passed == "verified")
       {
-        bctest.methods.getCoins().send({ gas: "700000", from: myAddress[0] });
+        // execute the transfer
+        context.message1 = "Email verification and new account status successful!";
+        context.message2 = "Please complete the transaction on you MetaMask wallet";
+        res.render("/result", context);
+      }
+      else if (passed != "verified")
+      {
+        context.message1 = "I'm sorry, the email verification process was unsuccessful...";
+        context.message2 = "If you'd like, you can return to the user-signup screen and try again";
+        res.render("/result", context);
       }
       
-      //context.r = response.body;
-      //context.p = userPasscode;
-      //context.e = userEmail;
-      //res.render("u_verified", context);
-      //console.log(response);
   });
   
   // see what the response was

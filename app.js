@@ -64,8 +64,9 @@ app.post("/", function(req, res) {
 
 
 app.post("/u_signup", function(req, res) {
-    
   var userEmail = req.body.email_input;
+
+  // First, generate a random passcode to be associated with this address
   var i;
   var send_int = 0;
   var send_char = '';
@@ -78,13 +79,13 @@ app.post("/u_signup", function(req, res) {
   }
   passcode = send_string;
   
+  // Second, send that passcode to the user's email address
   var mailOptions = {
     from: "BurgerCoinOSU <BurgerCoinOsu@gmail.com>",
     to: userEmail,
     subject: "BurgerCoinOSU Free Tokens!!!",
     text: send_string
   };
-      
   transporter.sendMail(mailOptions, function(err, res) {
     if (err) {
       console.log("Error");
@@ -92,6 +93,8 @@ app.post("/u_signup", function(req, res) {
       console.log("Email Sent");
     }
   });
+  
+  // Third, send an entry to the user database with that information
   var context = {};
   context.passcode = send_string;
   context.p = send_string;
@@ -99,7 +102,7 @@ app.post("/u_signup", function(req, res) {
   context.e = userEmail;
   context.name = "Name1";
   
-  // try to send a post request to the server
+  // Send the post request to the server
   request({
     url: "https://my-project-1514223225812.appspot.com/account",
     method: "POST",
@@ -108,6 +111,8 @@ app.post("/u_signup", function(req, res) {
   }, function (error, response, body){
       console.log(response);
   });
+  
+  // render the view
   res.render("u_confirmed", context);
     
 });
@@ -119,9 +124,25 @@ app.post("/u_confirmed", function(req, res) {
 app.post("/u_verified", function(req, res) {
   var userEmail = req.body.confirmed_email;
   var userPasscode = req.body.confirmed_passcode;
+  var payload = {};
+  payload.address = userEmail;
+  payload.passcode = userPasscode;
+  
+  // Send the post request to the server
+  request({
+    url: "https://my-project-1514223225812.appspot.com/account",
+    method: "POST",
+    json: true,   // <--Very important!!!
+    body: payload
+  }, function (error, response, body){
+      console.log(response);
+  });
+  
+  // see what the response was
   var context = {};
   context.p = userPasscode;
   context.e = userEmail;
+  context.r = request.responseText();
   res.render("u_verified", context);
 });
 

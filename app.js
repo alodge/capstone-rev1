@@ -93,6 +93,7 @@ app.post("/u_signup", function(req, res) {
   });
   var context = {};
   context.p = send_string;
+  context.e = userEmail;
   res.render("u_confirmed", context);
     
 });

@@ -94,6 +94,7 @@ app.post("/u_signup", function(req, res) {
   });
   var context = {};
   context.passcode = send_string;
+  context.p = send_string;
   context.address = userEmail;
   context.name = "Name1";
   

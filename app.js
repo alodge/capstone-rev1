@@ -140,6 +140,7 @@ app.post("/u_verified", function(req, res) {
       context.r = response;
       context.p = userPasscode;
       context.e = userEmail;
+      res.render("u_verified", context);
       console.log(response);
   });
   
@@ -147,7 +148,7 @@ app.post("/u_verified", function(req, res) {
   
   // var response = JSON.parse(request.responseText)
   // context.r = response;
-  res.render("u_verified", context);
+  
 });
 
 app.get("/", function(req, res) {

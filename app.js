@@ -138,12 +138,13 @@ app.post("/u_verified", function(req, res) {
     body: payload
   }, function (error, response, body){
       context.r = response;
+      context.p = userPasscode;
+      context.e = userEmail;
       console.log(response);
   });
   
   // see what the response was
-  context.p = userPasscode;
-  context.e = userEmail;
+  
   // var response = JSON.parse(request.responseText)
   // context.r = response;
   res.render("u_verified", context);

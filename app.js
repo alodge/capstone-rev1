@@ -142,7 +142,6 @@ app.post("/u_verified", function(req, res) {
   });
   
   // see what the response was
-  var context = {};
   context.p = userPasscode;
   context.e = userEmail;
   // var response = JSON.parse(request.responseText)

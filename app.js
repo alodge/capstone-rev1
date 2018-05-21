@@ -96,6 +96,7 @@ app.post("/u_signup", function(req, res) {
   context.passcode = send_string;
   context.p = send_string;
   context.address = userEmail;
+  context.e = userEmail;
   context.name = "Name1";
   
   // try to send a post request to the server

@@ -102,6 +102,8 @@ app.post("/u_confirmed", function(req, res) {
 });
 
 app.post("/u_verified", function(req, res) {
+  var userEmail = req.body.email_input;
+  
   res.render("u_verified", {});
 });
 

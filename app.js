@@ -126,7 +126,8 @@ app.post("/u_verified", function(req, res) {
   var payload = {};
   payload.address = userEmail;
   payload.passcode = userPasscode;
-  
+
+  var context = {};
   // Send the post request to the server
   request({
     url: "https://my-project-1514223225812.appspot.com/account",
@@ -134,6 +135,7 @@ app.post("/u_verified", function(req, res) {
     json: true,   // <--Very important!!!
     body: payload
   }, function (error, response, body){
+      context.r = response;
       console.log(response);
   });
   
@@ -142,7 +144,7 @@ app.post("/u_verified", function(req, res) {
   context.p = userPasscode;
   context.e = userEmail;
   // var response = JSON.parse(request.responseText)
-  context.r = "nice try";
+  // context.r = response;
   res.render("u_verified", context);
 });
 

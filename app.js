@@ -108,7 +108,7 @@ app.post("/u_signup", function(req, res) {
     url: "https://my-project-1514223225812.appspot.com/account",
     method: "POST",
     json: true,   // <--Very important!!!
-    body: payload;
+    body: payload
   }, function (error, response, body){
       console.log(response);
   });

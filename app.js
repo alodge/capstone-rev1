@@ -185,6 +185,10 @@ app.get("/u_signup", function(req, res) {
   res.render("u_signup", {});
 });
 
+app.get("/result", function(req, res) {
+  res.render("transfer", {});
+});
+
 app.get("/r_signup", function(req, res) {
   res.render("r_signup", {});
 });

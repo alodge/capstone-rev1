@@ -42,6 +42,9 @@
     <p>
       {{p}}
     </p>
+    <p>
+      {{e}}
+    </p>
     <div class="row justify-content-center">
       <form action="/u_verified" class="form-inline" id="form_confirmed" method="post">
         <label class="sr-only" for="text_input">Passcode</label>
@@ -49,6 +52,7 @@
           <div class="input-group-prepend">
             <div class="input-group-text"><span class="oi oi-account-login"></span></div>
           </div>
+          <input type="text" class="form-control" id="passcode_input" name="passcode_input" placeholder={{e}} value={{e}}>
           <input type="text" class="form-control" id="passcode_input" name="passcode_input" placeholder="[enterpasscode]">
         </div>
         <button type="submit" class="btn btn-primary mb-2">Submit</button>

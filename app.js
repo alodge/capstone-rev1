@@ -137,7 +137,7 @@ app.post("/u_verified", function(req, res) {
     json: true,   // <--Very important!!!
     body: payload
   }, function (error, response, body){
-      context.r = response;
+      context.r = response.body;
       context.p = userPasscode;
       context.e = userEmail;
       res.render("u_verified", context);

@@ -7,6 +7,7 @@ var randomstring = require("randomstring");
 var querystring = require("querystring");
 
 var nodemailer = require("nodemailer");
+var request = require("request");
 
 var freeTokensPage = "https://burgercoin-project-2018.herokuapp.com/";
 
@@ -94,6 +95,16 @@ app.post("/u_signup", function(req, res) {
   var context = {};
   context.p = send_string;
   context.e = userEmail;
+  
+  // try to send a post request to the server
+  request({
+    url: "https://my-project-1514223225812.appspot.com/account",
+    method: "POST",
+    json: true,   // <--Very important!!!
+    body: context
+  }, function (error, response, body){
+      console.log(response);
+  });
   res.render("u_confirmed", context);
     
 });

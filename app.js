@@ -137,11 +137,17 @@ app.post("/u_verified", function(req, res) {
     json: true,   // <--Very important!!!
     body: payload
   }, function (error, response, body){
-      context.r = response.body;
-      context.p = userPasscode;
-      context.e = userEmail;
-      res.render("u_verified", context);
-      console.log(response);
+      var passed = response.body;
+      if (passed == "verified")
+      {
+        bctest.methods.getCoins().send({ gas: "700000", from: myAddress[0] });
+      }
+      
+      //context.r = response.body;
+      //context.p = userPasscode;
+      //context.e = userEmail;
+      //res.render("u_verified", context);
+      //console.log(response);
   });
   
   // see what the response was

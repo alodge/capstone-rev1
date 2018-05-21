@@ -101,6 +101,10 @@ app.post("/u_confirmed", function(req, res) {
   res.render("user", {});
 });
 
+app.post("/u_verified", function(req, res) {
+  res.render("u_verified", {});
+});
+
 app.get("/", function(req, res) {
   res.render("start", {});
 });

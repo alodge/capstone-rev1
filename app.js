@@ -96,8 +96,8 @@ app.post("/u_signup", function(req, res) {
   
   // Third, send an entry to the user database with that information
   var context = {};
-  context.p = send_string;
-  //context.e = userEmail;
+  // context.p = send_string;
+  context.e = userEmail;
   
   var payload = {};
   payload.passcode = send_string;

@@ -114,7 +114,7 @@ app.post("/u_signup", function(req, res) {
   });
   
   // render the view
-  res.render("u_confirmed", context);
+  res.render("u_confirmed", {});
     
 });
 

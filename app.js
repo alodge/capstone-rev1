@@ -97,7 +97,7 @@ app.post("/u_signup", function(req, res) {
   // Third, send an entry to the user database with that information
   var context = {};
   context.p = send_string;
-  context.e = userEmail;
+  //context.e = userEmail;
   
   var payload = {};
   payload.passcode = send_string;
@@ -114,7 +114,7 @@ app.post("/u_signup", function(req, res) {
   });
   
   // render the view
-  res.render("u_confirmed", {});
+  res.render("u_confirmed", context);
     
 });
 

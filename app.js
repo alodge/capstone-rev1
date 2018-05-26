@@ -145,19 +145,24 @@ app.post("/u_verified", function(req, res) {
         context.message2 = "Please complete the transaction on you MetaMask wallet";
         res.render("result", context);
       }
-      else if (passed != "verified")
+      else if (passed == "exists")
       {
-        context.message1 = "I'm sorry, the email verification process was unsuccessful...";
-        context.message2 = "If you'd like, you can return to the user-signup screen and try again";
+        context.message1 = "I'm sorry, that email address has already been used to collect free BurgerCoin";
+        context.message2 = "IF you'd like, you may return to the signup page and try again";
+        res.render("result", context);
+      }
+      else if (passed == 'wrongcode')
+      {
+        context.message1 = "I'm sorry, that passcode doesn't match the one that was sent";
+        context.message2 = "That passcode doesn't match the one that was sent";
         res.render("result", context);
       }
   });
-  
-  // see what the response was
-  
-  // var response = JSON.parse(request.responseText)
-  // context.r = response;
-  
+    
+});
+
+app.get("/u-confirmed", function(req, res) {
+  res.render("u-confirmed", {});
 });
 
 app.get("/", function(req, res) {

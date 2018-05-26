@@ -153,16 +153,12 @@ app.post("/u_verified", function(req, res) {
       }
       else if (passed == 'wrongcode')
       {
-        context.message1 = "I'm sorry, that passcode doesn't match the one that was sent";
-        context.message2 = "That passcode doesn't match the one that was sent";
-        res.render("result", context);
+        var newcontext = {};
+        newcontext.e = userEmail;
+        res.render("u_confirmed", newcontext);
       }
   });
     
-});
-
-app.get("/u-confirmed", function(req, res) {
-  res.render("u-confirmed", {});
 });
 
 app.get("/", function(req, res) {

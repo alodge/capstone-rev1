@@ -155,6 +155,7 @@ app.post("/u_verified", function(req, res) {
       {
         var newcontext = {};
         newcontext.e = userEmail;
+        newcontext.r = "Uh oh.  The passcode doesn't match.  Would you like to try again?";
         res.render("u_confirmed", newcontext);
       }
   });

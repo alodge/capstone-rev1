@@ -7,9 +7,7 @@ var abi = JSON.parse(
 );
 
 // putting my test into it
-var BurgerContract = eth
-  .contract(abi)
-  .at("0xe8f31079989eca482d84a95c9ff145da8db3e612");
+
 
 $(document).ready(function() {
   // Checking if Web3 has been injected by MetaMask
@@ -25,6 +23,10 @@ $(document).ready(function() {
   //  .contract(abi)
   //  .at("0xa1f2112d28d9c159940928dc5d7ff45f869a2350");
 
+  var BurgerContract = eth
+  .contract(abi)
+  .at("0xe8f31079989eca482d84a95c9ff145da8db3e612");
+  
   var text = $("#balance_text > strong").text();
   console.log("in user");
   console.log(text);
@@ -46,5 +48,23 @@ $(document).ready(function() {
 // Execute Transfer
 function transferCoin(){
   console.log("in transfer function");
+  var transferweb3 = new Web3(web3.currentProvider);
+  var trasnfereth = web3.eth;
+  var transferContract = transfereth
+  .contract(abi)
+  .at("0xe8f31079989eca482d84a95c9ff145da8db3e612");
+  
+  // Test: get user's balance
+  BurgerContract.balanceOf.call(eth.coinbase, function(error, result) {
+    if (error) {
+      console.log(error);
+    } else {
+      var bal = result / 1000000000000000000;
+      var bal = result;
+      console.log(bal);
+      
+    }
+  });
+  
 }
 

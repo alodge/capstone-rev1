@@ -118,9 +118,9 @@ app.post("/u_signup", function(req, res) {
     
 });
 
-app.post("/u_confirmed", function(req, res) {
-  res.render("user", {});
-});
+//app.post("/u_confirmed", function(req, res) {
+//  res.render("user", {});
+//});
 
 app.post("/u_verified", function(req, res) {
   var userEmail = req.body.confirmed_email;

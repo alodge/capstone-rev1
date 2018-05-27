@@ -27,3 +27,7 @@ $(document).ready(function() {
     }
   });
 });
+
+console.log("in user");
+console.log(text);
+

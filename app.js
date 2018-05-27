@@ -146,13 +146,13 @@ app.post("/u_verified", function(req, res) {
         // execute the transfer
         context.message1 = "Email verification and new account status successful!";
         context.message2 = "Please complete the transaction on you MetaMask wallet";
-        res.render("result", context);
+        res.render("u_result", context);
       }
       else if (passed == "exists")
       {
         context.message1 = "I'm sorry, that email address has already been used to collect free BurgerCoin";
         context.message2 = "IF you'd like, you may return to the signup page and try again";
-        res.render("result", context);
+        res.render("u_result", context);
       }
       else if (passed == 'wrongcode')
       {
@@ -225,9 +225,9 @@ app.post("/r_signup", function(req, res) {
     
 });
 
-app.post("/u_confirmed", function(req, res) {
-  res.render("user", {});
-});
+//app.post("/r_confirmed", function(req, res) {
+//  res.render("user", {});
+//});
 
 app.post("/r_verified", function(req, res) {
   var restEmail = req.body.confirmed_email;

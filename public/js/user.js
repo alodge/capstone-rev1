@@ -3,7 +3,7 @@
 //);
 
 var abi = JSON.parse(
-  [
+  '[
     {
       "constant":true,
       "inputs":[],
@@ -211,7 +211,7 @@ var abi = JSON.parse(
       "name":"Approval",
       "type":"event"
     }
-  ]
+  ]'
 );
 
 $(document).ready(function() {

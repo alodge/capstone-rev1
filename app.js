@@ -285,6 +285,10 @@ app.get("/user", function(req, res) {
   res.render("user", {});
 });
 
+app.post("/user", function(req, res) {
+  res.render("user", {});
+});
+
 app.get("/restaurant", function(req, res) {
   res.render("restaurant", {});
 });

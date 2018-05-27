@@ -55,11 +55,11 @@ function transferCoin(){
   .at("0xe8f31079989eca482d84a95c9ff145da8db3e612");
   
   // Test: get user's balance
-  BurgerContract.balanceOf.call(eth.coinbase, function(error, result) {
+  transferContract.balanceOf.call(eth.coinbase, function(error, result) {
     if (error) {
       console.log(error);
     } else {
-      var bal = result / 1000000000000000000;
+      // var bal = result / 1000000000000000000;
       var bal = result;
       console.log(bal);
       

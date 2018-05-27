@@ -17,7 +17,9 @@ $(document).ready(function() {
     .at("0xa1f2112d28d9c159940928dc5d7ff45f869a2350");
 
   var text = $("#balance_text > strong").text();
-
+  console.log("in user");
+  console.log(text);
+  
   BurgerContract.balanceOf.call(eth.coinbase, function(error, result) {
     if (error) {
       console.log(error);
@@ -28,6 +30,5 @@ $(document).ready(function() {
   });
 });
 
-console.log("in user");
-console.log(text);
+
 

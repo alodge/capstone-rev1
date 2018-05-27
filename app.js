@@ -225,9 +225,9 @@ app.post("/r_signup", function(req, res) {
     
 });
 
-//app.post("/u_confirmed", function(req, res) {
-//  res.render("user", {});
-//});
+app.post("/u_confirmed", function(req, res) {
+  res.render("user", {});
+});
 
 app.post("/r_verified", function(req, res) {
   var restEmail = req.body.confirmed_email;

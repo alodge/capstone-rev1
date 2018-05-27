@@ -60,9 +60,9 @@ function transferCoin(){
       console.log(error);
     } else {
       // var bal = result / 1000000000000000000;
-      var bal = result.c;
+      var bal = result.c[0];
       console.log(bal);
-      
+      console.log(u_transfer_input);
     }
   });
   

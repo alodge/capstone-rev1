@@ -60,7 +60,7 @@ function transferCoin(){
       console.log(error);
     } else {
       // var bal = result / 1000000000000000000;
-      var bal = result;
+      var bal = result.c;
       console.log(bal);
       
     }

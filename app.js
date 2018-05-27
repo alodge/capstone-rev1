@@ -146,7 +146,7 @@ app.post("/u_verified", function(req, res) {
         // execute the transfer
         context.message1 = "Email verification and new account status successful!";
         context.message2 = "Please complete the transaction on you MetaMask wallet";
-        res.render("u_result", context);
+        res.render("user", context);
       }
       else if (passed == "exists")
       {

@@ -62,6 +62,9 @@ app.post("/", function(req, res) {
   res.render("start", {});
 });
 
+/************************
+  USER SIGNUP
+************************/
 
 app.post("/u_signup", function(req, res) {
   var userEmail = req.body.email_input;
@@ -157,6 +160,110 @@ app.post("/u_verified", function(req, res) {
         newcontext.e = userEmail;
         newcontext.r = "Uh oh.  The passcode doesn't match.  Would you like to try again?";
         res.render("u_confirmed", newcontext);
+      }
+  });
+    
+});
+
+
+/************************
+  RESTAURANT SIGNUP
+************************/
+
+app.post("/r_signup", function(req, res) {
+  var restEmail = req.body.email_input;
+
+  // First, generate a random passcode to be associated with this address
+  var i;
+  var send_int = 0;
+  var send_char = '';
+  var send_string = "";
+  for (i = 0; i < 16; i++)
+  {
+    send_int = Math.floor(Math.random() * 26);
+    send_char = String.fromCharCode(send_int + 97);
+    send_string = send_string + send_char;
+  }
+  passcode = send_string;
+  
+  // Second, send that passcode to the user's email address
+  var mailOptions = {
+    from: "BurgerCoinOSU <BurgerCoinOsu@gmail.com>",
+    to: restEmail,
+    subject: "BurgerCoinOSU Free Tokens!!!",
+    text: send_string
+  };
+  transporter.sendMail(mailOptions, function(err, res) {
+    if (err) {
+      console.log("Error");
+    } else {
+      console.log("Email Sent");
+    }
+  });
+  
+  // Third, send an entry to the user database with that information
+  var context = {};
+  // context.p = send_string;
+  context.e = restEmail;
+  
+  var payload = {};
+  payload.passcode = send_string;
+  payload.address = restEmail;
+  
+  // Send the post request to the server
+  request({
+    url: "https://my-project-1514223225812.appspot.com/account",
+    method: "POST",
+    json: true,   // <--Very important!!!
+    body: payload
+  }, function (error, response, body){
+      console.log(response);
+  });
+  
+  // render the view
+  res.render("r_confirmed", context);
+    
+});
+
+//app.post("/u_confirmed", function(req, res) {
+//  res.render("user", {});
+//});
+
+app.post("/r_verified", function(req, res) {
+  var restEmail = req.body.confirmed_email;
+  var restPasscode = req.body.confirmed_passcode;
+  var payload = {};
+  payload.address = restEmail;
+  payload.passcode = restPasscode;
+
+  var context = {};
+  // Send the post request to the server
+  request({
+    url: "https://my-project-1514223225812.appspot.com/account",
+    method: "POST",
+    json: true,   // <--Very important!!!
+    body: payload
+  }, function (error, response, body){
+      var passed = response.body;
+      if (passed == "verified")
+      {
+        // execute the transfer
+        context.message1 = "Email verification and new account status successful!";
+        context.message2 = "Please complete the transaction on you MetaMask wallet";
+        res.render("r_result", context);
+      }
+      else if (passed == "exists")
+      {
+        context.message1 = "I'm sorry, that email address has already been used to collect free BurgerCoin";
+        context.message2 = "IF you'd like, you may return to the signup page and try again";
+        res.render("r_result", context);
+      }
+      else if (passed == 'wrongcode')
+      {
+        var newcontext = {};
+        newcontext.e = restEmail;
+        newcontext.r = "Uh oh.  The passcode doesn't match.  Would you like to try again?";
+        res.render("r_confirmed", newcontext);
       }
   });
     

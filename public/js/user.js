@@ -42,12 +42,12 @@ $(document).ready(function() {
     }
   });
   
-  // Execute Transfer
-  function transferCoin(){
-    console.log("in transfer function");
-  }
+ 
   
 });
 
-
+// Execute Transfer
+function transferCoin(){
+  console.log("in transfer function");
+}
 

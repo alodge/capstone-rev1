@@ -25,6 +25,7 @@ $(document).ready(function() {
       console.log(error);
     } else {
       var bal = result / 1000000000000000000;
+      console.log(bal);
       $("#balance_text > strong").text(text + bal);
     }
   });

@@ -30,6 +30,7 @@ $(document).ready(function() {
   console.log("in user");
   console.log(text);
   
+  // Get user's balance
   BurgerContract.balanceOf.call(eth.coinbase, function(error, result) {
     if (error) {
       console.log(error);
@@ -40,6 +41,9 @@ $(document).ready(function() {
       $("#balance_text > strong").text(text + bal);
     }
   });
+  
+  // Execute Transfer
+  
 });
 
 

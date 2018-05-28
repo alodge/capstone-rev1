@@ -94,7 +94,7 @@ function transferCoin(){
   console.log(sendpayload);
   */
   
-  transferContract.transfer.call(transferee1, transferee1amount, function(error, result) {
+  transferContract.transfer.send(transferee1, transferee1amount, function(error, result) {
   if (error) {
     console.log("error");
   } else {

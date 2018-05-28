@@ -53,8 +53,8 @@ function transferCoin(){
   var transferContract = transfereth
     .contract(abi)
     .at("0xe8f31079989eca482d84a95c9ff145da8db3e612");
-  // var transferee = u_transfer_input.value;
-  // console.log(transferee);
+  var transferee1 = u_transfer_input.value;
+  console.log(transferee1);
   
   // Test: get user's balance
   transferContract.balanceOf.call(eth.coinbase, function(error, result) {

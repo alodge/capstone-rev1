@@ -53,8 +53,10 @@ function transferCoin(){
   var transferContract = transfereth
     .contract(abi)
     .at("0xe8f31079989eca482d84a95c9ff145da8db3e612");
-  var transferee1 = u_transfer_input.value;
-  // console.log(transferee1);
+  var transferee1 = u_transfer_to.value;
+  var transferee1amount = u_transfer_amount.value;
+  console.log(transferee1);
+  console.log(transferee1amount);
   
   // Test: get user's balance
   /*

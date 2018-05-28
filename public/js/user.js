@@ -46,7 +46,7 @@ $(document).ready(function() {
 });
 
 // Execute Transfer
-function transferCoin(){
+async function transferCoin(){
   console.log("in transfer js function");
   var transferweb3 = new Web3(web3.currentProvider);
   var transfereth = web3.eth;

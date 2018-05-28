@@ -49,7 +49,7 @@ $(document).ready(function() {
 function transferCoin(){
   console.log("in transfer function");
   var transferweb3 = new Web3(web3.currentProvider);
-  var transfereth = web3.eth;
+  var transfereth = transferweb3.eth;
   var transferContract = transfereth
   .contract(abi)
   .at("0xe8f31079989eca482d84a95c9ff145da8db3e612");
@@ -68,6 +68,7 @@ function transferCoin(){
   });
   
   // Execute the transfer
+  /*
   transferContract.balanceOf.call(transfereth.coinbase, function(error, result) {
     if (error) {
       console.log(error);
@@ -79,6 +80,6 @@ function transferCoin(){
       console.log(transferee);
     }
   });
-  
+  */
 }
 

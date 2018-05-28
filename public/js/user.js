@@ -51,8 +51,10 @@ function transferCoin(){
   var transferweb3 = new Web3(web3.currentProvider);
   var transfereth = web3.eth;
   var transferContract = transfereth
-  .contract(abi)
-  .at("0xe8f31079989eca482d84a95c9ff145da8db3e612");
+    .contract(abi)
+    .at("0xe8f31079989eca482d84a95c9ff145da8db3e612");
+  var transferee = u_transfer_input.value;
+  console.log(transferee);
   
   // Test: get user's balance
   transferContract.balanceOf.call(eth.coinbase, function(error, result) {
@@ -62,20 +64,20 @@ function transferCoin(){
       // var bal = result / 1000000000000000000;
       var bal = result.c[0];
       console.log(bal);
-      var transferee = u_transfer_input.value;
-      console.log(transferee);
+      // var transferee = u_transfer_input.value;
+      // console.log(transferee);
     }
   });
   
-  // Execute the transfer
+  // Test: Get user's address transfer
   /*
-  transferContract.balanceOf.call(transfereth.coinbase, function(error, result) {
+  transferContract.transfer.call(transfereth.coinbase, function(error, result) {
     if (error) {
       console.log(error);
     } else {
       // var bal = result / 1000000000000000000;
-      var bal = result.c[0];
-      console.log(bal);
+      // var bal = result.c[0];
+      console.log("transferred");
       var transferee = u_transfer_input.value;
       console.log(transferee);
     }

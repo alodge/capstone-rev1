@@ -51,19 +51,19 @@ $(document).ready(function() {
 async function transferCoin(){
   console.log("in transfer js function");
   
-  var web3 = new Web3(web3.currentProvider);
-  var eth = web3.eth;
-  var transferContract = eth
+  var t_web3 = new Web3(web3.currentProvider);
+  var t_eth = t_web3.eth;
+  var t_contract = t_eth
     .contract(abi)
     .at("0xe8f31079989eca482d84a95c9ff145da8db3e612");
   
-  var transferee1 = u_transfer_to.value;
-  var transferee1amount = u_transfer_amount.value;
-  web3.eth.defaultAccount = web3.eth.accounts[0];
+  var transferee = u_transfer_to.value;
+  var transfer_amount = u_transfer_amount.value;
+  t_web3.t_eth.defaultAccount = t_web3.t_eth.accounts[0];
   
   console.log("just before calling transfer contract");
  
-  var contractResponse = await transferContract.transfer.call(transferee1, transferee1amount, function(error, result) {
+  var contractResponse = await t_contract.transfer.call(transferee, transfer_amount, function(error, result) {
     if (error) {
       console.log("error");
     } else {

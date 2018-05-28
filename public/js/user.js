@@ -74,20 +74,20 @@ function transferCoin(){
   */
   
   // Test: Get user's address transfer
-  
- transferContract.transfer.call({to: transferee1, tokens: tranquan }, function(error, result) {
-    if (error) {
-      console.log("error");
-    } else {
-      // var bal = result / 1000000000000000000;
-      console.log("does it get here?");
-      var bal = result.c[0];
-      console.log(bal);
-      var transferee = u_transfer_input.value;
-      console.log(transferee);
-      console.log(transferee1);
-    }
+  /*
+  transferContract.transfer.call({to: transferee1, tokens: tranquan }, function(error, result) {
+  if (error) {
+    console.log("error");
+  } else {
+    // var bal = result / 1000000000000000000;
+    console.log("does it get here?");
+    var bal = result.c[0];
+    console.log(bal);
+    var transferee = u_transfer_input.value;
+    console.log(transferee);
+    console.log(transferee1);
+  }
   });
-  
+  */
 }
 

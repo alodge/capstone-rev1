@@ -50,7 +50,9 @@ async function transferCoin() {
   // var this1 = this;
   // this.setState({ message: "Heard Click of the transfer button" });
   // Transfer code
-  const myAddress = await web3.eth.getAccounts();
+  web3 = new Web3(web3.currentProvider);
+  eth = web3.eth;
+  var myAddress = web3.eth.getAccounts();
   var fromAddress = myAddress[0];
   console.log(fromAddress);
   // this1.setState({ message: "Waiting on transfer to process.." });

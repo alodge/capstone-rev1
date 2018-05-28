@@ -48,7 +48,7 @@ $(document).ready(function() {
 });
 
 transferCoin = async event => {
-  event.preventDefault();
+  // event.preventDefault();
   // var this1 = this;
   // this.setState({ message: "Heard Click of the transfer button" });
   // Transfer code

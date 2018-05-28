@@ -108,6 +108,7 @@ async function transferCoin(){
       //console.log(transferee);
       console.log(transferee1);
       console.log(transferee1amount);
+      return result;
     }
   });
   

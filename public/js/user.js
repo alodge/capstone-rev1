@@ -57,12 +57,16 @@ async function transferCoin(){
     .contract(abi)
     .at("0xe8f31079989eca482d84a95c9ff145da8db3e612");
   
-  var transferee = u_transfer_to.value;
-  var transfer_amount = u_transfer_amount.value;
-  web3.t_eth.defaultAccount = web3.eth.accounts[0];
+  // var transferee = u_transfer_to.value;
+  // var transfer_amount = u_transfer_amount.value;
+  // web3.t_eth.defaultAccount = web3.eth.accounts[0];
+  
+  console.log(web3.eth.accounts[0]);
+  console.log(u_transfer_to.value);
+  console.log(u_transfer_amount.value);
   
   console.log("just before calling transfer contract");
- 
+ /*
   var contractResponse = await t_contract.transfer.call(transferee, transfer_amount, function(error, result) {
     if (error) {
       console.log("error");
@@ -75,7 +79,7 @@ async function transferCoin(){
  
   console.log(contractResponse);
   console.log("at end of js function");
-  
+  */
   // await transferContract.methods.transfer(transferee1, transferee1amount).send({ gas: "700000", from: fromAddress });
   
 }

@@ -92,7 +92,7 @@ function transferCoin(){
   }
   });
   */
-  transferContract.transfer.send(transferee1, transferee1amount, {from: web3.eth.accounts[0], gas: 200000});
+  transferContract.methods.transfer.send(transferee1, transferee1amount, {from: web3.eth.accounts[0], gas: 200000});
   
 }
 

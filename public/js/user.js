@@ -48,9 +48,9 @@ $(document).ready(function() {
 // Execute Transfer
 function transferCoin(){
   console.log("in transfer function");
-  var web3 = new Web3(web3.currentProvider);
-  var eth = web3.eth;
-  var transferContract = eth
+  var transferweb3 = new Web3(web3.currentProvider);
+  var transfereth = web3.eth;
+  var transferContract = transfereth
   .contract(abi)
   .at("0xe8f31079989eca482d84a95c9ff145da8db3e612");
   

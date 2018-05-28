@@ -54,9 +54,10 @@ function transferCoin(){
     .contract(abi)
     .at("0xe8f31079989eca482d84a95c9ff145da8db3e612");
   var transferee1 = u_transfer_input.value;
-  console.log(transferee1);
+  // console.log(transferee1);
   
   // Test: get user's balance
+  /*
   transferContract.balanceOf.call(eth.coinbase, function(error, result) {
     if (error) {
       console.log("error");
@@ -70,20 +71,23 @@ function transferCoin(){
       console.log(transferee1);
     }
   });
+  */
   
   // Test: Get user's address transfer
-  /*
-  transferContract.transfer.call(transfereth.coinbase, function(error, result) {
+  
+ transferContract.transfer.call({to: transferee1, tokens: tranquan }, function(error, result) {
     if (error) {
-      console.log(error);
+      console.log("error");
     } else {
       // var bal = result / 1000000000000000000;
-      // var bal = result.c[0];
-      console.log("transferred");
+      console.log("does it get here?");
+      var bal = result.c[0];
+      console.log(bal);
       var transferee = u_transfer_input.value;
       console.log(transferee);
+      console.log(transferee1);
     }
   });
-  */
+  
 }
 

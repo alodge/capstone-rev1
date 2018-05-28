@@ -58,7 +58,7 @@ async function transferCoin(){
   
   console.log("just before calling transfer contract");
   
-  var contractResponse = await transferContract.transfer.call(transferee1, transferee1amount, function(error, result) {
+  var contractResponse = await transferContract.transfer(transferee1, transferee1amount).call({ gas: "700000", from: myAddress[0] }, function(error, result) {
     if (error) {
       console.log("error");
     } else {

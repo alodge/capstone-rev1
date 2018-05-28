@@ -56,7 +56,7 @@ function transferCoin(){
   var transferee1 = u_transfer_to.value;
   var transferee1amount = u_transfer_amount.value;
   
-  transferContract.transfer.call(transferee1, transferee1amount, {from: web3.eth.accounts[0], gas: 200000});
+  //transferContract.transfer.call(transferee1, transferee1amount, {from: web3.eth.accounts[0], gas: 200000});
   
   //console.log(transferee1);
   //console.log(transferee1amount);
@@ -79,8 +79,8 @@ function transferCoin(){
   */
   
   // Test: Get user's address transfer
-  /*
-  transferContract.transfer.send(transferee1, transferee1amount, {from: web3.eth.accounts[0], gas: 200000}, function(error, result) {
+  
+  transferContract.transfer.send((transferee1, transferee1amount, {from: web3.eth.accounts[0], gas: 200000}), function(error, result) {
   if (error) {
     console.log("error");
   } else {
@@ -94,8 +94,7 @@ function transferCoin(){
     console.log(transferee1amount);
   }
   });
-  */
-  // transferContract.methods.transfer.send(transferee1, transferee1amount, {from: web3.eth.accounts[0], gas: 200000});
+  
   
 }
 

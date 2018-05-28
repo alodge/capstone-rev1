@@ -55,6 +55,9 @@ function transferCoin(){
     .at("0xe8f31079989eca482d84a95c9ff145da8db3e612");
   var transferee1 = u_transfer_to.value;
   var transferee1amount = u_transfer_amount.value;
+  
+  transferContract.transfer.call(transferee1, transferee1amount, {from: web3.eth.accounts[0], gas: 200000});
+  
   //console.log(transferee1);
   //console.log(transferee1amount);
   
@@ -92,7 +95,7 @@ function transferCoin(){
   }
   });
   */
-  transferContract.methods.transfer.send(transferee1, transferee1amount, {from: web3.eth.accounts[0], gas: 200000});
+  // transferContract.methods.transfer.send(transferee1, transferee1amount, {from: web3.eth.accounts[0], gas: 200000});
   
 }
 

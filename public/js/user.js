@@ -77,6 +77,6 @@ async function transferCoin(){
   console.log("at end of js function");
   */
   
-  await transferContract.methods.transfer(transferee1, transferee1amount).send({ gas: "700000", from: fromAddress });
+  await bctest.methods.transfe.send(transferee1, transferee1amount);
   
 }

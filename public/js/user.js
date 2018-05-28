@@ -91,7 +91,7 @@ function transferCoin(){
   payload.push(obj2);
   console.log(payload);
   
-  transferContract.transfer.call(transferee1, transferee1amount, function(error, result) {
+  transferContract.transfer.call(payload, function(error, result) {
   if (error) {
     console.log("error");
   } else {

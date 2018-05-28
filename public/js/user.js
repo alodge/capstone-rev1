@@ -84,9 +84,9 @@ function transferCoin(){
   var obj1 = {};
   var obj2 = {};
   obj1.to = transferee1;
-  obj1.type = 'address';
+  //obj1.type = 'address';
   obj2.tokens = transferee1amount;
-  obj2.type = 'uint256';
+  //obj2.type = 'uint256';
   payload.push(obj1);
   payload.push(obj2);
   var sendpayload = JSON.stringify(payload);

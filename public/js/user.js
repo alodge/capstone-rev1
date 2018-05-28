@@ -53,9 +53,12 @@ async function transferCoin(){
   var transferContract = transfereth
     .contract(abi)
     .at("0xe8f31079989eca482d84a95c9ff145da8db3e612");
+  var myAddress = await web3.eth.getAccounts();
+  var fromAddress = myAddress[0];
   var transferee1 = u_transfer_to.value;
   var transferee1amount = u_transfer_amount.value;
   
+  console.log(fromAddress);
   console.log("just before calling transfer contract");
   /*
   var contractResponse = await transferContract.transfer(transferee1, transferee1amount).call({ gas: "700000", from: myAddress[0] }, function(error, result) {
@@ -72,7 +75,7 @@ async function transferCoin(){
   console.log("at end of js function")
   */
   
-  await transferContract.methods.transfer(transferee1, transferee1amount).send({ gas: "700000", from: myAddress[0] })
+  await transferContract.methods.transfer(transferee1, transferee1amount).send({ gas: "700000", from: fromAddress });
   
 }
 

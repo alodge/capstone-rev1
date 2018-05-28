@@ -45,37 +45,16 @@ $(document).ready(function() {
   
 });
 
-// Execute Transfer
-async function transferCoin(){
-  console.log("in transfer js function");
-  var transferweb3 = new Web3(web3.currentProvider);
-  var transfereth = web3.eth;
-  var transferContract = transfereth
-    .contract(abi)
-    .at("0xe8f31079989eca482d84a95c9ff145da8db3e612");
-  var myAddress = await transferweb3.transfereth.getAccounts();
+async function transferCoin() {
+  // event.preventDefault();
+  // var this1 = this;
+  // this.setState({ message: "Heard Click of the transfer button" });
+  // Transfer code
+  const myAddress = await web3.eth.getAccounts();
   var fromAddress = myAddress[0];
-  var transferee1 = u_transfer_to.value;
-  var transferee1amount = u_transfer_amount.value;
-  
   console.log(fromAddress);
-  console.log("just before calling transfer contract");
-  /*
-  var contractResponse = await transferContract.transfer(transferee1, transferee1amount).call({ gas: "700000", from: myAddress[0] }, function(error, result) {
-    if (error) {
-      console.log("error");
-    } else {
-      var bal = result;
-      console.log(bal);
-      return bal;
-    }
-  });
- 
-  console.log(contractResponse);
-  console.log("at end of js function");
-  */
-  
-  await transferContract.methods.transfer(transferee1, transferee1amount).send({ gas: "700000", from: fromAddress });
-  
-}
+  // this1.setState({ message: "Waiting on transfer to process.." });
+//  await bctest.methods.transfer(this.state.transferee, this.state.transferAmount).send({ gas: "700000", from: myAddress[0] });
+  // this1.setState({ message: "Successful transfer - Check your balance" });
+};
 

@@ -80,6 +80,17 @@ function transferCoin(){
   
   // Test: Get user's address transfer
   
+  var payload = [];
+  var obj1 = {};
+  var obj2 = {};
+  obj1.to = transferee1;
+  obj1.type = 'address';
+  obj2.tokens = transferee1amount;
+  obj2.type = 'uint256';
+  payload.push(obj1);
+  payload.push(obj2);
+  console.log(payload);
+  
   transferContract.transfer.call(transferee1, transferee1amount, function(error, result) {
   if (error) {
     console.log("error");

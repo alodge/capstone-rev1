@@ -56,59 +56,15 @@ async function transferCoin(){
   var transferee1 = u_transfer_to.value;
   var transferee1amount = u_transfer_amount.value;
   
-  //transferContract.transfer.call(transferee1, transferee1amount, {from: web3.eth.accounts[0], gas: 200000});
-  
-  //console.log(transferee1);
-  //console.log(transferee1amount);
-  
-  // Test: get user's balance
-  /*
-  transferContract.balanceOf.call(eth.coinbase, function(error, result) {
-    if (error) {
-      console.log("error");
-    } else {
-      // var bal = result / 1000000000000000000;
-      console.log("does it get here?");
-      var bal = result.c[0];
-      console.log(bal);
-      var transferee = u_transfer_input.value;
-      console.log(transferee);
-      console.log(transferee1);
-    }
-  });
-  */
-  
-  // Test: Get user's address transfer
-  /*
-  var payload = [];
-  var obj1 = {};
-  var obj2 = {};
-  obj1.to = transferee1;
-  //obj1.type = 'address';
-  obj2.tokens = transferee1amount;
-  //obj2.type = 'uint256';
-  payload.push(obj1);
-  payload.push(obj2);
-  var sendpayload = JSON.stringify(payload);
-  console.log(payload);
-  console.log(sendpayload);
-  */
-  
   console.log("just before calling transfer contract");
   
   var contractResponse = await transferContract.transfer.call(transferee1, transferee1amount, function(error, result) {
     if (error) {
       console.log("error");
     } else {
-      // var bal = result / 1000000000000000000;
-      console.log("in call to transfer in contract");
-      //var bal = result.c[0];
-      //console.log(bal);
-      //var transferee = u_transfer_input.value;
-      //console.log(transferee);
-      console.log(transferee1);
-      console.log(transferee1amount);
-      return result;
+      var bal = result;
+      console.log(bal);
+      return bal;
     }
   });
   

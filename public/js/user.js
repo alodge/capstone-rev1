@@ -94,7 +94,7 @@ function transferCoin(){
     console.log(transferee1amount);
   }
   });
-  
+  console.log("after transfer contract function");
   
 }
 

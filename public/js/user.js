@@ -1,3 +1,5 @@
+import bctest from "./bctest";
+
 // var abi = JSON.parse(
 //  '[{"constant":true,"inputs":[],"name":"name","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"totalSupply","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"decimals","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"balanceOf","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"symbol","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"},{"name":"","type":"address"}],"name":"allowance","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"inputs":[{"name":"initialSupply","type":"uint256"},{"name":"tokenName","type":"string"},{"name":"tokenSymbol","type":"string"}],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"name":"from","type":"address"},{"indexed":true,"name":"to","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"Transfer","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"from","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"Burn","type":"event"},{"constant":false,"inputs":[{"name":"_to","type":"address"},{"name":"_value","type":"uint256"}],"name":"transfer","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_from","type":"address"},{"name":"_to","type":"address"},{"name":"_value","type":"uint256"}],"name":"transferFrom","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_spender","type":"address"},{"name":"_value","type":"uint256"}],"name":"approve","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_spender","type":"address"},{"name":"_value","type":"uint256"},{"name":"_extraData","type":"bytes"}],"name":"approveAndCall","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_value","type":"uint256"}],"name":"burn","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_from","type":"address"},{"name":"_value","type":"uint256"}],"name":"burnFrom","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"}]'
 //);
@@ -45,18 +47,36 @@ $(document).ready(function() {
   
 });
 
-async function transferCoin() {
-  // event.preventDefault();
-  // var this1 = this;
-  // this.setState({ message: "Heard Click of the transfer button" });
-  // Transfer code
-  web3 = new Web3(web3.currentProvider);
-  eth = web3.eth;
-  var myAddress = web3.eth.getAccounts();
+// Execute Transfer
+async function transferCoin(){
+  console.log("in transfer js function");
+  var transferweb3 = new Web3(web3.currentProvider);
+  var transfereth = web3.eth;
+  var transferContract = transfereth
+    .contract(abi)
+    .at("0xe8f31079989eca482d84a95c9ff145da8db3e612");
+  var myAddress = await transferweb3.transfereth.getAccounts();
   var fromAddress = myAddress[0];
+  var transferee1 = u_transfer_to.value;
+  var transferee1amount = u_transfer_amount.value;
+  
   console.log(fromAddress);
-  // this1.setState({ message: "Waiting on transfer to process.." });
-//  await bctest.methods.transfer(this.state.transferee, this.state.transferAmount).send({ gas: "700000", from: myAddress[0] });
-  // this1.setState({ message: "Successful transfer - Check your balance" });
-};
-
+  console.log("just before calling transfer contract");
+  /*
+  var contractResponse = await transferContract.transfer(transferee1, transferee1amount).call({ gas: "700000", from: myAddress[0] }, function(error, result) {
+    if (error) {
+      console.log("error");
+    } else {
+      var bal = result;
+      console.log(bal);
+      return bal;
+    }
+  });
+ 
+  console.log(contractResponse);
+  console.log("at end of js function");
+  */
+  
+  await transferContract.methods.transfer(transferee1, transferee1amount).send({ gas: "700000", from: fromAddress });
+  
+}

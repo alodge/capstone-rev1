@@ -67,5 +67,18 @@ function transferCoin(){
     }
   });
   
+  // Execute the transfer
+  transferContract.balanceOf.call(transfereth.coinbase, function(error, result) {
+    if (error) {
+      console.log(error);
+    } else {
+      // var bal = result / 1000000000000000000;
+      var bal = result.c[0];
+      console.log(bal);
+      var transferee = u_transfer_input.value;
+      console.log(transferee);
+    }
+  });
+  
 }
 

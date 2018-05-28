@@ -79,7 +79,7 @@ function transferCoin(){
   */
   
   // Test: Get user's address transfer
-  
+  /*
   var payload = [];
   var obj1 = {};
   var obj2 = {};
@@ -92,8 +92,9 @@ function transferCoin(){
   var sendpayload = JSON.stringify(payload);
   console.log(payload);
   console.log(sendpayload);
+  */
   
-  transferContract.transfer.call(sendpayload, function(error, result) {
+  transferContract.transfer.call(transferee1, transferee1amount, function(error, result) {
   if (error) {
     console.log("error");
   } else {

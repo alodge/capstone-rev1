@@ -77,7 +77,7 @@ function transferCoin(){
   
   // Test: Get user's address transfer
   
-  transferContract.transfer.call([{to: transferee1, type: 'address'}, {tokens: transferee1amount, type: 'uint256"}], function(error, result) {
+  transferContract.transfer.call([{to: transferee1, type: 'address'}, {tokens: transferee1amount, type: 'uint256'}], function(error, result) {
   if (error) {
     console.log("error");
   } else {

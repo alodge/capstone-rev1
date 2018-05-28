@@ -48,14 +48,14 @@ $(document).ready(function() {
 // Execute Transfer
 function transferCoin(){
   console.log("in transfer function");
-  var transferweb3 = new Web3(web3.currentProvider);
-  var transfereth = transferweb3.eth;
-  var transferContract = transfereth
+  var web3 = new Web3(web3.currentProvider);
+  var eth = web3.eth;
+  var transferContract = eth
   .contract(abi)
   .at("0xe8f31079989eca482d84a95c9ff145da8db3e612");
   
   // Test: get user's balance
-  transferContract.balanceOf.call(transfereth.coinbase, function(error, result) {
+  transferContract.balanceOf.call(eth.coinbase, function(error, result) {
     if (error) {
       console.log(error);
     } else {

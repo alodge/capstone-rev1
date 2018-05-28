@@ -72,7 +72,7 @@ async function transferCoin(){
   });
  
   console.log(contractResponse);
-  console.log("at end of js function")
+  console.log("at end of js function");
   */
   
   await transferContract.methods.transfer(transferee1, transferee1amount).send({ gas: "700000", from: fromAddress });

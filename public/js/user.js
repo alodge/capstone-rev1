@@ -80,7 +80,7 @@ function transferCoin(){
   
   // Test: Get user's address transfer
   
-  transferContract.transfer.call((transferee1, transferee1amount, {from: web3.eth.accounts[0], gas: 200000}), function(error, result) {
+  transferContract.transfer.call(transferee1, transferee1amount, function(error, result) {
   if (error) {
     console.log("error");
   } else {

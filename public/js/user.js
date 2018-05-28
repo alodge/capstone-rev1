@@ -94,21 +94,24 @@ function transferCoin(){
   console.log(sendpayload);
   */
   
-  transferContract.transfer.call(transferee1, transferee1amount, function(error, result) {
-  if (error) {
-    console.log("error");
-  } else {
-    // var bal = result / 1000000000000000000;
-    console.log("in call to transfer in contract");
-    //var bal = result.c[0];
-    //console.log(bal);
-    //var transferee = u_transfer_input.value;
-    //console.log(transferee);
-    console.log(transferee1);
-    console.log(transferee1amount);
-  }
-  });
-  console.log("after transfer contract function");
+  console.log("just before calling transfer contract");
   
+  var contractResponse = await transferContract.transfer.call(transferee1, transferee1amount, function(error, result) {
+    if (error) {
+      console.log("error");
+    } else {
+      // var bal = result / 1000000000000000000;
+      console.log("in call to transfer in contract");
+      //var bal = result.c[0];
+      //console.log(bal);
+      //var transferee = u_transfer_input.value;
+      //console.log(transferee);
+      console.log(transferee1);
+      console.log(transferee1amount);
+    }
+  });
+  
+  console.log(contractResponse);
+  console.log("at end of js function")
 }
 

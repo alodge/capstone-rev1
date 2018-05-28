@@ -47,7 +47,7 @@ $(document).ready(function() {
 
 // Execute Transfer
 function transferCoin(){
-  console.log("in transfer function");
+  console.log("in transfer js function");
   var transferweb3 = new Web3(web3.currentProvider);
   var transfereth = web3.eth;
   var transferContract = transfereth
@@ -55,8 +55,8 @@ function transferCoin(){
     .at("0xe8f31079989eca482d84a95c9ff145da8db3e612");
   var transferee1 = u_transfer_to.value;
   var transferee1amount = u_transfer_amount.value;
-  console.log(transferee1);
-  console.log(transferee1amount);
+  //console.log(transferee1);
+  //console.log(transferee1amount);
   
   // Test: get user's balance
   /*
@@ -76,20 +76,21 @@ function transferCoin(){
   */
   
   // Test: Get user's address transfer
-  /*
-  transferContract.transfer.call({to: transferee1, tokens: tranquan }, function(error, result) {
+  
+  transferContract.transfer.call({to: transferee1, tokens: transferee1amount }, function(error, result) {
   if (error) {
     console.log("error");
   } else {
     // var bal = result / 1000000000000000000;
-    console.log("does it get here?");
-    var bal = result.c[0];
-    console.log(bal);
-    var transferee = u_transfer_input.value;
-    console.log(transferee);
+    console.log("in call to transfer in contract");
+    //var bal = result.c[0];
+    //console.log(bal);
+    //var transferee = u_transfer_input.value;
+    //console.log(transferee);
     console.log(transferee1);
+    console.log(transferee1amount);
   }
   });
-  */
+  
 }
 

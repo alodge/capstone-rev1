@@ -57,7 +57,7 @@ async function transferCoin(){
   var transferee1amount = u_transfer_amount.value;
   
   console.log("just before calling transfer contract");
-  
+  /*
   var contractResponse = await transferContract.transfer(transferee1, transferee1amount).call({ gas: "700000", from: myAddress[0] }, function(error, result) {
     if (error) {
       console.log("error");
@@ -67,8 +67,12 @@ async function transferCoin(){
       return bal;
     }
   });
-  
+ 
   console.log(contractResponse);
   console.log("at end of js function")
+  */
+  
+  await transferContract.methods.transfer(transferee1, transferee1amount).send({ gas: "700000", from: myAddress[0] })
+  
 }
 

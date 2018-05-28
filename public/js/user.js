@@ -59,7 +59,7 @@ async function transferCoin(){
   
   var transferee = u_transfer_to.value;
   var transfer_amount = u_transfer_amount.value;
-  t_web3.t_eth.defaultAccount = t_web3.t_eth.accounts[0];
+  t_web3.t_eth.defaultAccount = web3.eth.accounts[0];
   
   console.log("just before calling transfer contract");
  

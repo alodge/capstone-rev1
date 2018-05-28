@@ -89,7 +89,9 @@ function transferCoin(){
   obj2.type = 'uint256';
   payload.push(obj1);
   payload.push(obj2);
+  var sendpayload = JSON.stringify(payload);
   console.log(payload);
+  console.log(sendpayload);
   
   transferContract.transfer.call(payload, function(error, result) {
   if (error) {

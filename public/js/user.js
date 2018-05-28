@@ -53,7 +53,7 @@ async function transferCoin(){
   var transferContract = transfereth
     .contract(abi)
     .at("0xe8f31079989eca482d84a95c9ff145da8db3e612");
-  var myAddress = await web3.eth.getAccounts();
+  var myAddress = await transferweb3.transfereth.getAccounts();
   var fromAddress = myAddress[0];
   var transferee1 = u_transfer_to.value;
   var transferee1amount = u_transfer_amount.value;

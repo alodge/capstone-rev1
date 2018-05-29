@@ -49,6 +49,8 @@ $(document).ready(function() {
   
 });
 
+// beginning of function call
+/*
 // Execute Transfer
 async function transferCoin(){
   console.log("in transfer js function");
@@ -104,32 +106,33 @@ async function transferCoin(){
   var contractResponse = await t_contract.transfer(toAddress, sendAmount).send({ gas: "700000", from: fromAddress });
   console.log(contractResponse);
   */
-  
 }
+// end of function call
+*/
 
 document.addEventListener('DOMContentLoaded', reqButton);
 
 function reqButton()
 {
-	document.getElementById("try").addEventListener('click', function(event)
+	document.getElementById("transferButton").addEventListener('click', function(event)
 	{
-		var req = new XMLHttpRequest();
-		var payload = {sampleDate:null};
-		payload.sampleDate = document.getElementById("sampleDate").value;
-		req.open("GET", "https://api.nasa.gov/planetary/apod?date=" + payload.sampleDate 
-			+ "&hd=true&api_key=DEMO_KEY", true);
-
-		req.addEventListener('load',function(){
-			if(req.status >= 200 && req.status < 400)
-			{
-				var response = JSON.parse(req.responseText);
-				document.getElementById('hdPic').src = response.hdurl;
-			} 
-			else 
-			{
-				console.log("Error in network request: " + req.statusText);
-			}});		
-		req.send(JSON.stringify(payload));
+		var t_contract = eth
+    			.contract(abi)
+    			.at("0xe8f31079989eca482d84a95c9ff145da8db3e612");
+		var fromAddress = web3.eth.accounts[0];
+  		var toAddress = u_transfer_to.value;
+  		var sendAmount = u_transfer_amount.value;
+		
+		 BurgerContract.symbol.call(function(error, result) {
+    			if (error) {
+      				console.log(error);
+    			} else {
+      				console.log("in not-error");
+			      	var bal = result;
+      				console.log(bal);
+      				return bal;
+    			}
+		});
 		event.preventDefault();
 	})
 }

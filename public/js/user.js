@@ -78,6 +78,10 @@ async function transferCoin(){
   console.log(tranString);
   console.log(tranObject);
   
+  t_contract.transfer.call(toAddress, sendAmount, { from: fromAddress });
+  
+  /*
+  // This one is also mad about syncronicity
   var contractResponse = await t_contract.transfer(toAddress, sendAmount).call(tranObject, function(error, result) {
     if (error) {
       console.log(error);
@@ -88,10 +92,9 @@ async function transferCoin(){
       return bal;
     }
   });
- 
   console.log(contractResponse);
   console.log("at end of js function");
-  
+  */
   /*
   // This one is unhappy because "The MetaMask Web3 object does not support synchronous methods"
   var contractResponse = await t_contract.transfer(toAddress, sendAmount).send({ gas: "700000", from: fromAddress });

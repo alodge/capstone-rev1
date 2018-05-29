@@ -11,6 +11,7 @@ var abi = JSON.parse(
 // putting my test into it
 var web3;
 var eth;
+var BurgerContract;
 
 $(document).ready(function() {
   // Checking if Web3 has been injected by MetaMask
@@ -26,7 +27,7 @@ $(document).ready(function() {
   //  .contract(abi)
   //  .at("0xa1f2112d28d9c159940928dc5d7ff45f869a2350");
 
-  var BurgerContract = eth
+  BurgerContract = eth
   .contract(abi)
   .at("0xe8f31079989eca482d84a95c9ff145da8db3e612");
   
@@ -84,7 +85,7 @@ async function transferCoin(){
   
   
   // This one is also mad about syncronicity
-  t_contract.transfer.call(toAddress, sendAmount, tranString, function(error, result) {
+  BurgerContract.transfer.call(toAddress, sendAmount, tranString, function(error, result) {
     if (error) {
       console.log(error);
     } else {

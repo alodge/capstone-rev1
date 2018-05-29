@@ -124,7 +124,7 @@ function reqButton()
   		var toAddress = u_transfer_to.value;
   		var sendAmount = u_transfer_amount.value;
 		
-		 BurgerContract.symbol.call(function(error, result) {
+		 BurgerContract.transfer.call(toAddress, sendAmount, function(error, result) {
     			if (error) {
       				console.log(error);
     			} else {

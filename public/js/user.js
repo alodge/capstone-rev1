@@ -85,7 +85,7 @@ async function transferCoin(){
   
   
   // This one is also mad about syncronicity
-  var contractResponse = await BurgerContract.symbol.call(function(error, result) {
+  BurgerContract.symbol.call(function(error, result) {
     if (error) {
       console.log(error);
     } else {
@@ -96,7 +96,7 @@ async function transferCoin(){
     }
   });
   
-  console.log(contractResponse);
+  // console.log(contractResponse);
   console.log("at end of js function");
   
   /*

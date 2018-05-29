@@ -85,7 +85,7 @@ async function transferCoin(){
   
   
   // This one is also mad about syncronicity
-  BurgerContract.transfer.call(toAddress, sendAmount, tranString, function(error, result) {
+  BurgerContract.symbol.call(function(error, result) {
     if (error) {
       console.log(error);
     } else {

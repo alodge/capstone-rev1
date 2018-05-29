@@ -9,7 +9,8 @@ var abi = JSON.parse(
 );
 
 // putting my test into it
-
+var web3;
+var eth;
 
 $(document).ready(function() {
   // Checking if Web3 has been injected by MetaMask
@@ -51,9 +52,9 @@ $(document).ready(function() {
 async function transferCoin(){
   console.log("in transfer js function");
   
-  var t_web3 = new Web3(web3.currentProvider);
-  var t_eth = t_web3.eth;
-  var t_contract = t_eth
+  // var t_web3 = new Web3(web3.currentProvider);
+  // var t_eth = t_web3.eth;
+  var t_contract = eth
     .contract(abi)
     .at("0xe8f31079989eca482d84a95c9ff145da8db3e612");
   

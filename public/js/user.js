@@ -106,3 +106,30 @@ async function transferCoin(){
   */
   
 }
+
+document.addEventListener('DOMContentLoaded', reqButton);
+
+function reqButton()
+{
+	document.getElementById("try").addEventListener('click', function(event)
+	{
+		var req = new XMLHttpRequest();
+		var payload = {sampleDate:null};
+		payload.sampleDate = document.getElementById("sampleDate").value;
+		req.open("GET", "https://api.nasa.gov/planetary/apod?date=" + payload.sampleDate 
+			+ "&hd=true&api_key=DEMO_KEY", true);
+
+		req.addEventListener('load',function(){
+			if(req.status >= 200 && req.status < 400)
+			{
+				var response = JSON.parse(req.responseText);
+				document.getElementById('hdPic').src = response.hdurl;
+			} 
+			else 
+			{
+				console.log("Error in network request: " + req.statusText);
+			}});		
+		req.send(JSON.stringify(payload));
+		event.preventDefault();
+	})
+}

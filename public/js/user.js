@@ -83,7 +83,7 @@ async function transferCoin(){
   
   
   // This one is also mad about syncronicity
-  t_contract.transfer.call(toAddress, sendAmount, tranObject, function(error, result) {
+  t_contract.transfer.call(toAddress, sendAmount, tranString, function(error, result) {
     if (error) {
       console.log(error);
     } else {

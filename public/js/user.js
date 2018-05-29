@@ -106,9 +106,10 @@ async function transferCoin(){
   var contractResponse = await t_contract.transfer(toAddress, sendAmount).send({ gas: "700000", from: fromAddress });
   console.log(contractResponse);
   */
-}
+// }
+// */
 // end of function call
-*/
+
 
 document.addEventListener('DOMContentLoaded', reqButton);
 

@@ -131,7 +131,6 @@ function reqButton()
       				console.log("in not-error");
 			      	var bal = result;
       				console.log(bal);
-      				return bal;
     			}
 		});
 		event.preventDefault();

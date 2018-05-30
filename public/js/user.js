@@ -123,8 +123,10 @@ function reqButton()
 		var fromAddress = web3.eth.accounts[0];
   		var toAddress = u_transfer_to.value;
   		var sendAmount = u_transfer_amount.value;
+		transferCoin(fromAddress, toAddress, sendAmount);
 		
-		 BurgerContract.transfer.call(toAddress, sendAmount, function(error, result) {
+		/*
+		BurgerContract.transfer.call(toAddress, sendAmount, function(error, result) {
     			if (error) {
       				console.log(error);
     			} else {
@@ -133,6 +135,29 @@ function reqButton()
       				console.log(bal);
     			}
 		});
+		*/
+		// call
 		event.preventDefault();
 	})
+}
+
+async function transferCoin(from, to, qty) {
+  try {
+    console.log("transferCoin");
+    moveCoin = await moveCoin(from, to, qty);
+  } catch(error) {
+    console.log(error);
+  }
+}
+
+function moveCoin(from, to, qty) {
+  return new Promise(function(resolve, reject) {
+    BurgerContract.transfer(to, qty, function(error, response) {
+      if (error) {
+        reject(error);
+      } else {
+        resolve(response);
+      }
+    })
+  });
 }

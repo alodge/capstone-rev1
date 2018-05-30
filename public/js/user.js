@@ -152,7 +152,7 @@ async function transferCoin(from, to, qty) {
 
 function moveCoin(from, to, qty) {
   return new Promise(function(resolve, reject) {
-    BurgerContract.transfer(to, qty, function(error, response) {
+    BurgerContract.transfer.call(to, qty, function(error, response) {
       if (error) {
         reject(error);
       } else {

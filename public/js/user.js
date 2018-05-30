@@ -144,7 +144,7 @@ function reqButton()
 async function transferCoin(from, to, qty) {
   try {
     console.log("transferCoin");
-    moveCoin = await moveCoin(from, to, qty);
+    var moveAttempt = await moveCoin(from, to, qty);
   } catch(error) {
     console.log(error);
   }

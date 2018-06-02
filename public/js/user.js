@@ -51,11 +51,11 @@ function listenForClicks (miniToken) {
       console.dir(txHash);
 
       waitForTxToBeMined(txHash);
-    });
+    })
 
     .catch(console.error);
 
-  })
+  });
 
 }
 

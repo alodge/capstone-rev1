@@ -41,7 +41,7 @@ function initContract (contract) {
 
 function listenForClicks (miniToken) {
 
-  var button = document.querySelector('button.transferFunds')
+  var button = document.querySelector('button.transferButton')
   button.addEventListener('click', function() {
 
     miniToken.transfer(toAddress, value, { from: addr })
@@ -56,5 +56,26 @@ function listenForClicks (miniToken) {
     .catch(console.error)
 
   })
+
+}
+
+async function waitForTxToBeMined (txHash) {
+
+  let txReceipt
+  while (!txReceipt) {
+
+    try {
+
+      txReceipt = await eth.getTransactionReceipt(txHash)
+
+    } catch (err) {
+
+      return indicateFailure(err)
+
+    }
+
+  }
+
+  indicateSuccess()
 
 }

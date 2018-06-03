@@ -10439,8 +10439,8 @@ function initContract (contract, eth) {
     		if (error) {
       			console.log(error);
     		} else {
-      			// var bal = result / 1000000000000000000;
-      			var bal = result;
+      			var bal = result / 1000000000000000000;
+      			// var bal = result;
       			console.log(bal);
       			// $("#balance_text > strong").text(text + bal);
 			balText = balText + bal;

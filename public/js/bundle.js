@@ -10421,16 +10421,16 @@ function startApp(web3) {
 	const contract = new EthContract(eth);
 	
 	
-	initContract(contract);
+	initContract(contract, eth);
 }
 
-function initContract (contract) {
+function initContract (contract, eth) {
 	console.log("initContract");
   const MiniToken = contract(abi);
   const miniToken = MiniToken.at(address);
 	// display the token and balance
 	var balText = document.getElementById("balance_text").value;
-	miniToken.balanceOf.call(function(error, result) {
+	miniToken.balanceOf.call(eth.coinbase, function(error, result) {
     		if (error) {
       			console.log(error);
     		} else {

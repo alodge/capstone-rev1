@@ -10448,7 +10448,7 @@ function listenForClicks (miniToken) {
     .catch(console.error);
 
   });
-
+	event.preventDefault();
 }
 
 async function waitForTxToBeMined (txHash) {

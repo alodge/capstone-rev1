@@ -10401,6 +10401,7 @@ window.onload=function(){
 	  if (typeof web3 !== 'undefined') {
 
 	    // You have a web3 browser! Continue below!
+		  console.log("heard click in onload");
 	    startApp(web3);
 
 	  } else {
@@ -10413,7 +10414,7 @@ window.onload=function(){
 }
 
 function startApp(web3) {
-
+	console.log("in startapp");
   const eth = new Eth(web3.currentProvider);
   const contract = new EthContract(eth);
 
@@ -10422,7 +10423,7 @@ function startApp(web3) {
 }
 
 function initContract (contract) {
-
+	console.log("initContract");
   const MiniToken = contract(abi);
   const miniToken = MiniToken.at(address);
 
@@ -10431,7 +10432,7 @@ function initContract (contract) {
 }
 
 function listenForClicks (miniToken) {
-
+	console.log("listen for clicks");
   var button = document.querySelector('button.transferButton');
   button.addEventListener('click', function() {
 
@@ -10451,7 +10452,7 @@ function listenForClicks (miniToken) {
 }
 
 async function waitForTxToBeMined (txHash) {
-
+	console.log("wait for tx to be mined");
   let txReceipt;
   while (!txReceipt) {
 

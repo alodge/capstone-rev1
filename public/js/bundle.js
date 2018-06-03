@@ -10441,15 +10441,15 @@ function initContract (contract, eth) {
     		} else {
       			// var bal = result / 1000000000000000000;
       			// result => result.toNumber();
-			var bal = result[0] / 10e18;
+			var bal = result[0] / 10e17;
 			console.log(bal);
-			var balNumber = bal.toNumber();
-      			console.log(balNumber);
+			//var balNumber = bal.toNumber();
+      			// console.log(balNumber);
 			// var balNumber = result.toNumber();
 			// console.log(balNumber);
       			// $("#balance_text > strong").text(text + bal);
 			var balObject = document.getElementById("balance_text");
-			var balText = document.createTextNode(balNumber);
+			var balText = document.createTextNode(bal);
 			balObject.appendChild(balText);
     		}
   	});

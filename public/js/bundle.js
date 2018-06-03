@@ -10438,9 +10438,10 @@ function initContract (contract, eth) {
     		if (error) {
       			console.log(error);
     		} else {
-			console.log(result);
+			var sym = result[0];
+			console.log(sym);
 			var symbolObject = document.getElementById("token_text");
-			var symbolText = document.createTextNode(result);
+			var symbolText = document.createTextNode(sym);
 			symbolObject.appendChild(symbolText);
     		}
   	});

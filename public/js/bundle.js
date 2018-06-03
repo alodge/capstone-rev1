@@ -10441,9 +10441,10 @@ function initContract (contract, eth) {
     		} else {
       			// var bal = result / 1000000000000000000;
       			result => result.toNumber();
+			var bal = result.toString();
       			console.log(result);
       			// $("#balance_text > strong").text(text + bal);
-			balText = balText + result;
+			balText.text = "Hello There";
     		}
   	});
 	

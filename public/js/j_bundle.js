@@ -10525,16 +10525,13 @@ function initContract (contract, eth) {
 function listenForClicks (miniToken) {
 	console.log("listen for clicks");
 	//var button = document.querySelector('button.transferButton');
-	var button = document.getElementById("transferButton");
+	var button = document.getElementById("buyButton");
 	button.addEventListener('click', function() {
-		var toAddress = document.getElementById("u_transfer_to").value;
-		var sendNum = document.getElementById("u_transfer_amount").value;
-		var sendQty = sendNum * 1e18;
+		var buyQty = document.getElementById("buy_amount").value;
 		var fromAddress = web3.eth.accounts[0];
-		console.log("to: " + toAddress);
 		console.log("from: " + fromAddress);
-		console.log("qty: " + sendQty);
-		miniToken.transfer(toAddress, sendQty, { from: fromAddress })
+		console.log("qty: " + buyQty);
+		miniToken.exchange(buyQty, { from: fromAddress })
 			.then(function (txHash) {
 				console.log('Transaction sent');
 				console.dir(txHash);

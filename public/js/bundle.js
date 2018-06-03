@@ -10435,7 +10435,7 @@ function listenForClicks (miniToken) {
 		var toAddress = document.getElementById("u_transfer_to");
 		var sendQty = document.getElementById("u_transfer_amount");
 		var fromAddress = web3.eth.accounts[0];
-		miniToken.transfer(toAddress, value, { from: fromAddress })
+		miniToken.transfer(toAddress, sendQty, { from: fromAddress })
 			.then(function (txHash) {
 				console.log('Transaction sent');
 				console.dir(txHash);

@@ -10440,8 +10440,8 @@ function initContract (contract, eth) {
       			console.log(error);
     		} else {
       			// var bal = result / 1000000000000000000;
-      			result => result.toNumber();
-			var balString = result.toString();
+      			// result => result.toNumber();
+			var balString = result[0];
       			console.log(balString);
 			// var balNumber = result.toNumber();
 			// console.log(balNumber);

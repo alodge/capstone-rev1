@@ -10428,6 +10428,7 @@ function initContract (contract, eth) {
   const miniToken = MiniToken.at(address);
 	// display the token and balance
 	var myAddress = web3.eth.accounts[0];
+	console.log(myAddress);
 	var balText = document.getElementById("balance_text").value;
 	miniToken.balanceOf.call(myAddress, function(error, result) {
     		if (error) {

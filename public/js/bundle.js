@@ -10395,6 +10395,7 @@ const abi = [{"constant":true,"inputs":[],"name":"name","outputs":[{"name":"","t
 const address = '0x5c87e1c456dcedfab139df81a7ca331bb0c14dda';
 
 window.onload=function(){
+	console.log("window loaded");
 	window.addEventListener('load', function() {
 
 	  // Check if Web3 has been injected by the browser:

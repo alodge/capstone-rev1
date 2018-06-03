@@ -10431,7 +10431,8 @@ function initContract (contract) {
 
 function listenForClicks (miniToken) {
 	console.log("listen for clicks");
-  var button = document.querySelector('button.transferButton');
+  //var button = document.querySelector('button.transferButton');
+  var button = document.getElementById("transferButton");
   button.addEventListener('click', function() {
 
     miniToken.transfer(toAddress, value, { from: addr })

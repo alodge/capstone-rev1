@@ -10448,7 +10448,7 @@ function initContract (contract, eth) {
 			// console.log(balNumber);
       			// $("#balance_text > strong").text(text + bal);
 			var balObject = document.getElementById("balance_text");
-			var balText = document.createTextNode("Hello There!");
+			var balText = document.createTextNode(balNumber);
 			balObject.appendChild(balText);
     		}
   	});

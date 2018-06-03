@@ -10443,8 +10443,8 @@ function initContract (contract, eth) {
       			result => result.toNumber();
 			var balString = result.toString();
       			console.log(balString);
-			var balNumber = result.toNumber();
-			console.log(balNumber);
+			// var balNumber = result.toNumber();
+			// console.log(balNumber);
       			// $("#balance_text > strong").text(text + bal);
 			var balObject = document.getElementById("balance_text");
 			var balText = document.createTextNode("Hello There!");

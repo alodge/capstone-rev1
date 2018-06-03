@@ -10432,6 +10432,9 @@ function initContract (contract, eth) {
 	var myAddress = web3.eth.accounts[0];
 	console.log(myAddress);
 	var balText = document.getElementById("balance_text").value;
+	
+	// old way
+	/*
 	miniToken.balanceOf.call(myAddress, function(error, result) {
     		if (error) {
       			console.log(error);
@@ -10443,6 +10446,17 @@ function initContract (contract, eth) {
 			balText = balText + bal;
     		}
   	});
+	*/
+	
+	// newer way
+	miniToken.balanceOf(myAddress)
+			.then(function (txHash) {
+				console.log(result);
+				// console.dir(txHash);
+				// waitForTxToBeMined(txHash);
+		})
+		.catch(console.error);
+	
   listenForClicks(miniToken);
 
 }

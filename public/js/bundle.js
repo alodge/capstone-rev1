@@ -10420,9 +10420,17 @@ function startApp(web3) {
 	const eth = new Eth(web3.currentProvider);
 	const contract = new EthContract(eth);
 	
+	
+	initContract(contract);
+}
+
+function initContract (contract) {
+	console.log("initContract");
+  const MiniToken = contract(abi);
+  const miniToken = MiniToken.at(address);
 	// display the token and balance
 	var balText = document.getElementById("balance_text").value;
-	contract.balanceOf.call(eth.coinbase, function(error, result) {
+	miniToken.balanceOf.call(eth.coinbase, function(error, result) {
     		if (error) {
       			console.log(error);
     		} else {
@@ -10433,14 +10441,6 @@ function startApp(web3) {
 			balText = balText + bal;
     		}
   	});
-	initContract(contract);
-}
-
-function initContract (contract) {
-	console.log("initContract");
-  const MiniToken = contract(abi);
-  const miniToken = MiniToken.at(address);
-
   listenForClicks(miniToken);
 
 }

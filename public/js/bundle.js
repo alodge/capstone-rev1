@@ -10471,7 +10471,8 @@ function listenForClicks (miniToken) {
 	var button = document.getElementById("transferButton");
 	button.addEventListener('click', function() {
 		var toAddress = document.getElementById("u_transfer_to").value;
-		var sendQty = document.getElementById("u_transfer_amount").value;
+		var sendNum = document.getElementById("u_transfer_amount").value;
+		var sendQty = sendNum * 1e18;
 		var fromAddress = web3.eth.accounts[0];
 		console.log("to: " + toAddress);
 		console.log("from: " + fromAddress);

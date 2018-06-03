@@ -10505,11 +10505,11 @@ function initContract (contract, eth) {
   	});
 	
   // turn on the even listener for clicking the transfer button	
-  listenForClicks(miniToken);
+  listenForClicks(miniToken, eth);
 
 }
 
-function listenForClicks (miniToken) {
+function listenForClicks (miniToken, eth) {
 	console.log("listen for clicks");
 	//var button = document.querySelector('button.transferButton');
 	var button = document.getElementById("buyButton");

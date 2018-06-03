@@ -10419,6 +10419,20 @@ function startApp(web3) {
 	console.log("in startapp");
 	const eth = new Eth(web3.currentProvider);
 	const contract = new EthContract(eth);
+	
+	// display the token and balance
+	var balText = document.getElementById("balance_text").value;
+	contract.balanceOf.call(eth.coinbase, function(error, result) {
+    		if (error) {
+      			console.log(error);
+    		} else {
+      			// var bal = result / 1000000000000000000;
+      			var bal = result;
+      			console.log(bal);
+      			// $("#balance_text > strong").text(text + bal);
+			balText = balText + bal;
+    		}
+  	});
 	initContract(contract);
 }
 

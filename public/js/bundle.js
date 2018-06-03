@@ -10426,22 +10426,22 @@ function startApp(web3) {
 
 function initContract (contract, eth) {
 	console.log("initContract");
-  const MiniToken = contract(abi);
-  const miniToken = MiniToken.at(address);
+  	const MiniToken = contract(abi);
+	const miniToken = MiniToken.at(address);
+	
 	// display the token and balance
 	var myAddress = web3.eth.accounts[0];
 	console.log(myAddress);
 	
-	
-	// Get Token Symbol	
+	// Get Token Symbol 	
 	miniToken.symbol(function(error, result) {
     		if (error) {
       			console.log(error);
     		} else {
 			console.log(result);
-			var symbolObject = document.getElementById("balance_text");
-			var balText = document.createTextNode(bal);
-			balObject.appendChild(balText);
+			var symbolObject = document.getElementById("token_text");
+			var symbolText = document.createTextNode(result);
+			symbolObject.appendChild(symbolText);
     		}
   	});
 	
@@ -10459,18 +10459,7 @@ function initContract (contract, eth) {
     		}
   	});
 	
-	
-	// newer way
-	/*
-	miniToken.balanceOf(myAddress)
-			.then(function (txHash) {
-				console.log(result);
-				// console.dir(txHash);
-				// waitForTxToBeMined(txHash);
-		})
-		.catch(console.error);
-	*/
-	
+  // turn on the even listener for clicking the transfer button	
   listenForClicks(miniToken);
 
 }

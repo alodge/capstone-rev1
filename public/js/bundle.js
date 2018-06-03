@@ -10413,11 +10413,9 @@ window.onload=function(){
 
 function startApp(web3) {
 	console.log("in startapp");
-  const eth = new Eth(web3.currentProvider);
-  const contract = new EthContract(eth);
-
-  initContract(contract);
-
+	const eth = new Eth(web3.currentProvider);
+	const contract = new EthContract(eth);
+	initContract(contract);
 }
 
 function initContract (contract) {
@@ -10434,8 +10432,10 @@ function listenForClicks (miniToken) {
 	//var button = document.querySelector('button.transferButton');
 	var button = document.getElementById("transferButton");
 	button.addEventListener('click', function() {
-		var toAddress = document.getElementById("");
-		miniToken.transfer(toAddress, value, { from: addr })
+		var toAddress = document.getElementById("u_transfer_to");
+		var sendQty = document.getElementById("u_transfer_amount");
+		var fromAddress = web3.eth.accounts[0];
+		miniToken.transfer(toAddress, value, { from: fromAddress })
 			.then(function (txHash) {
 				console.log('Transaction sent');
 				console.dir(txHash);

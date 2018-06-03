@@ -10442,8 +10442,8 @@ function initContract (contract, eth) {
       			// var bal = result / 1000000000000000000;
       			// result => result.toNumber();
 			var bal = result[0];
-			var balString = bal.toString();
-      			console.log(balString);
+			var balNumber = bal.toNumber();
+      			console.log(balNumber);
 			// var balNumber = result.toNumber();
 			// console.log(balNumber);
       			// $("#balance_text > strong").text(text + bal);

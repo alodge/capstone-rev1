@@ -10397,7 +10397,7 @@ const address = '0x5c87e1c456dcedfab139df81a7ca331bb0c14dda';
 window.onload=function(){
 	console.log("window loaded");
 	window.addEventListener('load', function() {
-
+		console.log("in event listener");
 	  // Check if Web3 has been injected by the browser:
 	  if (typeof web3 !== 'undefined') {
 

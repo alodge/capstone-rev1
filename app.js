@@ -289,6 +289,14 @@ app.post("/user", function(req, res) {
   res.render("user", {});
 });
 
+app.get("/join", function(req, res) {
+  res.render("join", {});
+});
+
+app.post("/join", function(req, res) {
+  res.render("join", {});
+});
+
 app.get("/restaurant", function(req, res) {
   res.render("restaurant", {});
 });

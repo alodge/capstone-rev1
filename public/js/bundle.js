@@ -10430,7 +10430,7 @@ function initContract (contract) {
   const miniToken = MiniToken.at(address);
 	// display the token and balance
 	var balText = document.getElementById("balance_text").value;
-	miniToken.balanceOf.call(eth.coinbase, function(error, result) {
+	miniToken.balanceOf.call(function(error, result) {
     		if (error) {
       			console.log(error);
     		} else {

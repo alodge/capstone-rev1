@@ -32,29 +32,35 @@
     </div>
   </nav>
   <div class="jumbotron">
-    <h2>Transfer / Transactions Made Here!</h2>
-    <p class="lead">Welcome to the BurgerCoin Transfer website. Here, you can see your BurgerCoin balance & make transfers.</p>
+    <h2>Welcome!  We're glad to have you in the BurgerCoin community!</h2>
+    <p class="lead">If you'd like to purchase BurgerCoin, you've come to the right place!!  This is the page to:</p>
+    
+    <ul>
+      <li><p class="lead">Get your restaurant started as a BurgerCoin dealer.  Use Ether to purchase BurgerCoin.  With 10,000
+                BurgerCoin, you can register</p></li>
+      <li><p class="lead">Add some BurgerCoin to your wallet that you can use to exchange with vendors for their special burgers.
+                This isn't strictly necessary.  You can just start earning BurgerCoin by eating burgers, but this will give you a jump start.</p></li>
+    </ul>
+    
     <p class="text-center" id="token_text"><strong>Token for this contract: </strong></p>
     <p class="text-center" id="balance_text"><strong>Your current balance is: </strong></p>
     <p class="text-center" id="meta_text" style="display: none;"><strong>Please install <a href="metamask.io">MetaMask</a> to see your balance and interact with your BUR.</strong></p>
 
     <hr>
     <p>
-      <strong>Transfer Coins?: </strong>
-      Please enter an address to send BurgerCoins. (Usually, this will be to a restaurant to eat a special burger.
-      But you could also give them to your buddy, or even buy a car, if you find a dealer who accepts BurgerCoin for cars!)
+      <strong>Buy BurgerCoin Here!: </strong>
+      Please enter the amount of Ether you'd like to exchange for BurgerCoin.  The current exchane rate is 100 BUR / 1 ETH.
     </p>
     <div class="row justify-content-center">
-      <form class="form-inline" id="u_transfer_form">
-        <label class="sr-only" for="u_transfer_input">U_Transfer Address</label>
+      <form class="form-inline" id="buy_form">
+        <label class="sr-only" for="buy_form">U_Transfer Address</label>
         <div class="input-group mb-2 mr-sm-2">
           <div class="input-group-prepend">
             <div class="input-group-text"><span class="oi oi-dollar"></span></div>
           </div>
-          <input type="text" class="form-control" id="u_transfer_to" name="u_transfer_to" placeholder="[RecipientAccount#]">
-          <input type="text" class="form-control" id="u_transfer_amount" name="u_transfer_amount" placeholder="[amount]">
+          <input type="text" class="form-control" id="buy_amount" name="buy_amount" placeholder="[EtherQuantity]">
         </div>
-         <button id="transferButton" class="btn btn-primary mb-2">Transfer</button>
+         <button id="buyButton" class="btn btn-primary mb-2">Purchase BUR!</button>
       </form>
      
     </div>

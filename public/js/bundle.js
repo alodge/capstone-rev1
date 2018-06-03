@@ -10438,7 +10438,7 @@ function initContract (contract, eth) {
     		if (error) {
       			console.log(error);
     		} else {
-			var sym = result.value;
+			var sym = result.toString();
 			console.log(sym);
 			var symbolObject = document.getElementById("token_text");
 			var symbolText = document.createTextNode(sym);

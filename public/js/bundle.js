@@ -10419,8 +10419,6 @@ function startApp(web3) {
 	console.log("in startapp");
 	const eth = new Eth(web3.currentProvider);
 	const contract = new EthContract(eth);
-	
-	
 	initContract(contract, eth);
 }
 
@@ -10429,8 +10427,9 @@ function initContract (contract, eth) {
   const MiniToken = contract(abi);
   const miniToken = MiniToken.at(address);
 	// display the token and balance
+	var myAddress = web3.eth.accounts[0];
 	var balText = document.getElementById("balance_text").value;
-	miniToken.balanceOf.call(eth.coinbase, function(error, result) {
+	miniToken.balanceOf.call(myAddress, function(error, result) {
     		if (error) {
       			console.log(error);
     		} else {

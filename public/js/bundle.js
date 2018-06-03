@@ -10431,23 +10431,19 @@ function initContract (contract) {
 
 function listenForClicks (miniToken) {
 	console.log("listen for clicks");
-  //var button = document.querySelector('button.transferButton');
-  var button = document.getElementById("transferButton");
-  button.addEventListener('click', function() {
-
-    miniToken.transfer(toAddress, value, { from: addr })
-
-    .then(function (txHash) {
-      console.log('Transaction sent');
-      console.dir(txHash);
-
-      waitForTxToBeMined(txHash);
-    })
-
-    .catch(console.error);
-
-  });
-	event.preventDefault();
+	//var button = document.querySelector('button.transferButton');
+	var button = document.getElementById("transferButton");
+	button.addEventListener('click', function() {
+		var toAddress = document.getElementById("");
+		miniToken.transfer(toAddress, value, { from: addr })
+			.then(function (txHash) {
+				console.log('Transaction sent');
+				console.dir(txHash);
+				waitForTxToBeMined(txHash);
+		})
+		.catch(console.error);
+	});
+	// event.preventDefault();
 }
 
 async function waitForTxToBeMined (txHash) {

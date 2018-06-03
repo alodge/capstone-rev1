@@ -10490,19 +10490,6 @@ function initContract (contract, eth) {
 	var myAddress = web3.eth.accounts[0];
 	console.log(myAddress);
 	
-	// Get Token Symbol 	
-	miniToken.symbol(function(error, result) {
-    		if (error) {
-      			console.log(error);
-    		} else {
-			var sym = result['0'];
-			console.log(sym);
-			var symbolObject = document.getElementById("token_text");
-			var symbolText = document.createTextNode(sym);
-			symbolObject.appendChild(symbolText);
-    		}
-  	});
-	
 	// Get Token Balance	
 	miniToken.balanceOf(myAddress, function(error, result) {
     		if (error) {

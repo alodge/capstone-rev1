@@ -7107,6 +7107,8 @@ var getParamCoder = utils.getParamCoder;
 function Result() {}
 
 function encodeParams(types, values) {
+	console.log(types);
+	console.log(values);
   if (types.length !== values.length) {
     throw new Error('[ethjs-abi] while encoding params, types/values mismatch, Your contract requires ' + types.length + ' types (arguments), and you passed in ' + values.length);
   }

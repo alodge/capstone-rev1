@@ -10434,8 +10434,8 @@ function initContract (contract, eth) {
 	var balText = document.getElementById("balance_text").value;
 	
 	// old way
-	/*
-	miniToken.balanceOf.call(myAddress, function(error, result) {
+	
+	miniToken.balanceOf(myAddress, function(error, result) {
     		if (error) {
       			console.log(error);
     		} else {
@@ -10446,9 +10446,10 @@ function initContract (contract, eth) {
 			balText = balText + bal;
     		}
   	});
-	*/
+	
 	
 	// newer way
+	/*
 	miniToken.balanceOf(myAddress)
 			.then(function (txHash) {
 				console.log(result);
@@ -10456,6 +10457,7 @@ function initContract (contract, eth) {
 				// waitForTxToBeMined(txHash);
 		})
 		.catch(console.error);
+	*/
 	
   listenForClicks(miniToken);
 

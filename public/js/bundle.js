@@ -7449,6 +7449,7 @@ function coderFixedBytes(length) {
 var coderAddress = {
   encode: function encodeAddress(valueInput) {
     var value = valueInput; // eslint-disable-line
+	  console.log(value);
     var result = new Buffer(32); // eslint-disable-line
     if (!isHexString(value, 20)) {
       throw new Error('[ethjs-abi] while encoding address, invalid address value, not alphanumeric 20 byte hex string');

@@ -10396,22 +10396,19 @@ const address = '0x5c87e1c456dcedfab139df81a7ca331bb0c14dda';
 
 window.onload=function(){
 	console.log("window loaded");
-	window.addEventListener('loadend', function() {
-		console.log("in event listener");
-	  // Check if Web3 has been injected by the browser:
-	  if (typeof web3 !== 'undefined') {
+	console.log("in event listener");
+	// Check if Web3 has been injected by the browser:
+	if (typeof web3 !== 'undefined') {
 
-	    // You have a web3 browser! Continue below!
-		  console.log("heard click in onload");
-	    startApp(web3);
+		// You have a web3 browser! Continue below!
+		console.log("web3 defined");
+		startApp(web3);
 
-	  } else {
-		  // Warn the user that they need to get a web3 browser
-		  // Or install MetaMask, maybe with a nice graphic.
-		  console.log("get metamask");
-	  }
-
-	});
+	} else {
+		// Warn the user that they need to get a web3 browser
+		// Or install MetaMask, maybe with a nice graphic.
+		console.log("get metamask");
+	}
 }
 
 function startApp(web3) {

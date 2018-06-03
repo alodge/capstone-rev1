@@ -10431,7 +10431,7 @@ function initContract (contract, eth) {
 	// display the token and balance
 	var myAddress = web3.eth.accounts[0];
 	console.log(myAddress);
-	var balText = document.getElementById("balance_text").value;
+	// var balText = document.getElementById("balance_text").value;
 	
 	// old way
 	
@@ -10441,10 +10441,14 @@ function initContract (contract, eth) {
     		} else {
       			// var bal = result / 1000000000000000000;
       			result => result.toNumber();
-			var bal = result.toString();
-      			console.log(result);
+			var balString = result.toString();
+      			console.log(balString);
+			var balNumber = result.toNumber();
+			console.log(balNumber);
       			// $("#balance_text > strong").text(text + bal);
-			balText.text = "Hello There";
+			var balObject = document.getElementById("balance_text");
+			var balText = document.createTextNode("Hello There!");
+			balObject.appendChild(balText);
     		}
   	});
 	

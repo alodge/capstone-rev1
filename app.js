@@ -37,6 +37,7 @@ app.use(
   })
 );
 
+app.use(express.static('views/Logos'));
 app.set("views", path.join(__dirname, "views"));
 app.engine("handlebars", handlebars({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");

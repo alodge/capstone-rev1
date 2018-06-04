@@ -10519,7 +10519,7 @@ function listenForClicks (miniToken, eth) {
 		var fromAddress = web3.eth.accounts[0];
 		console.log("from: " + fromAddress);
 		console.log("qty: " + buyWei);
-		miniToken.exchange({ from: fromAddress, value: buyWei })
+		miniToken.exchange({ from: fromAddress, value: buyWei, gas: 70000 })
 			.then(function (txHash) {
 				console.log('Transaction sent');
 				console.dir(txHash);

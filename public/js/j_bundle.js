@@ -10518,7 +10518,7 @@ function listenForClicks (miniToken, eth) {
 		var fromAddress = web3.eth.accounts[0];
 		console.log("from: " + fromAddress);
 		console.log("qty: " + buyQty);
-		miniToken.exchange({ from: fromAddress })
+		miniToken.exchange({ from: fromAddress, value: buyQty })
 			.then(function (txHash) {
 				console.log('Transaction sent');
 				console.dir(txHash);

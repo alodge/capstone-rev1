@@ -10430,19 +10430,6 @@ function initContract (contract, eth) {
 	var myAddress = web3.eth.accounts[0];
 	console.log(myAddress);
 	
-	// Get Token Symbol 	
-	miniToken.symbol(function(error, result) {
-    		if (error) {
-      			console.log(error);
-    		} else {
-			var sym = result['0'];
-			console.log(sym);
-			var symbolObject = document.getElementById("token_text");
-			var symbolText = document.createTextNode(sym);
-			symbolObject.appendChild(symbolText);
-    		}
-  	});
-	
 	// Get Token Balance	
 	miniToken.balanceOf(myAddress, function(error, result) {
     		if (error) {
@@ -10456,50 +10443,7 @@ function initContract (contract, eth) {
 			balObject.appendChild(balText);
     		}
   	});
-	
-  // turn on the even listener for clicking the transfer button	
-  listenForClicks(miniToken);
 
 }
 
-function listenForClicks (miniToken) {
-	console.log("listen for clicks");
-	//var button = document.querySelector('button.transferButton');
-	var button = document.getElementById("transferButton");
-	button.addEventListener('click', function() {
-		var toAddress = document.getElementById("u_transfer_to").value;
-		var sendNum = document.getElementById("u_transfer_amount").value;
-		var sendQty = sendNum * 1e18;
-		var fromAddress = web3.eth.accounts[0];
-		console.log("to: " + toAddress);
-		console.log("from: " + fromAddress);
-		console.log("qty: " + sendQty);
-		miniToken.transfer(toAddress, sendQty, { from: fromAddress })
-			.then(function (txHash) {
-				console.log('Transaction sent');
-				console.dir(txHash);
-				waitForTxToBeMined(txHash);
-		})
-		.catch(console.error);
-	});
-	// event.preventDefault();
-}
-
-async function waitForTxToBeMined (txHash) {
-	console.log("wait for tx to be mined");
-  let txReceipt;
-  while (!txReceipt) {
-    try {
-      txReceipt = await eth.getTransactionReceipt(txHash);
-    } catch (err) {
-      return indicateFailure(err);
-    }
-  }
-  indicateSuccess();
-}
-	
-function indicateSuccess() {
-		console.log("a pending transaction was just completed");
-}
-	
 },{"ethjs-contract":95,"ethjs-query":98}]},{},[111]);

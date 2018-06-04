@@ -10514,11 +10514,12 @@ function listenForClicks (miniToken, eth) {
 	//var button = document.querySelector('button.transferButton');
 	var button = document.getElementById("buyButton");
 	button.addEventListener('click', function() {
-		var buyQty = document.getElementById("buy_amount").value;
+		var buyEth = document.getElementById("buy_amount").value;
+		var buyWei = buyEth * 1e18;
 		var fromAddress = web3.eth.accounts[0];
 		console.log("from: " + fromAddress);
 		console.log("qty: " + buyQty);
-		miniToken.exchange({ from: fromAddress, value: buyQty })
+		miniToken.exchange({ from: fromAddress, value: buyWei })
 			.then(function (txHash) {
 				console.log('Transaction sent');
 				console.dir(txHash);
